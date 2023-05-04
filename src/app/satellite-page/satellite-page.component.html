@@ -1,0 +1,23 @@
+<div class="container" *ngIf="satellite">
+  <a routerLink="/satellites" class="btn btn-outline-primary"><i class="fa-solid fa-angle-left"></i> Back</a>
+  <h1 class="text-center">{{satellite.satelliteName}}</h1>
+  <p>{{satellite.description}}</p>
+  <div class="card mt-4">
+    <h5 class="card-header">Properties</h5>
+    <ul class="list-group list-group-flush ">
+      <li class="list-group-item"><span class="fw-semibold">Launch Date:</span> {{satellite.launchDate}}</li>
+      <li class="list-group-item"><span class="fw-semibold">Launch Mass:</span> {{satellite.launchMass}}</li>
+      <li class="list-group-item"><span class="fw-semibold">Launch Vehicle:</span> {{satellite.launchVehcle}}</li>
+      <li class="list-group-item"><span class="fw-semibold">Orbit:</span> {{satellite.orbitType.orbit}}</li>
+      <li class="list-group-item"><span
+        class="fw-semibold">Application:</span> {{satellite.satelliteApplication.application}}</li>
+      <li class="list-group-item"><span
+        class="fw-semibold">Manufacturer:</span> {{satellite.manufacturer.name}} ({{satellite.manufacturer.country}})
+      </li>
+      <li class="list-group-item"><span
+        class="fw-semibold">Agency:</span> {{satellite.agency.name}} ({{satellite.agency.country}})
+      </li>
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>
