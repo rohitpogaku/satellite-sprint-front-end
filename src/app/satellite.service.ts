@@ -16,4 +16,8 @@ export class SatelliteService {
   getSatelliteById(id: number) {
     return this.http.get(`/api/v1/satellites/${id}`);
   }
+
+  getCountries(){
+    return this.http.get("https://restcountries.com/v2/all");
+  }
 }

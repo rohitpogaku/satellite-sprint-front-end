@@ -1,0 +1,13 @@
+img {
+    height: 190px;
+    width: 100%;
+}
+
+body {
+    background-color: #151618;
+}
+
+.custum_icon_section {
+    margin: 10px;   
+    text-decoration: none; 
+  }
