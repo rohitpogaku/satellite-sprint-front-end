@@ -1,0 +1,42 @@
+<div class="table-responsive ">
+  <table class="table  table-hover text-start ">
+    <thead class="table-light">
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>LAUNCH DATE</th>
+      <th>ORBIT</th>
+      <th>AGENCY</th>
+      <th>MANUFACTURER</th>
+      <th>APPLICATION</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let s of satellites" (click)="handleRowClick($event)">
+      <td>{{s.satellite_id}}</td>
+      <td>{{s.satellite_name}}</td>
+      <td>{{s.launch_date}}</td>
+      <td>{{s.orbit_type}}</td>
+      <td>{{s.agency}}</td>
+      <td>{{s.manufacturer}}</td>
+      <td>{{s.application}}</td>
+      <td>
+        <!-- split dropdown button -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-outline-success btn-sm">Edit</button>
+          <button type="button" class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item">Edit</li>
+            <li class="dropdown-item text-danger">Delete</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

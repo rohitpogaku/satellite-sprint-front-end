@@ -1,0 +1,24 @@
+<div class="spinner" *ngIf="!post">
+  <div class="spinner-border text-secondary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div *ngIf="post" class="container">
+  <h1 class="text-center">{{post.title}}</h1>
+  <p>{{post.content}}</p>
+  <div class="my-2 px-3 py-2 bg-warning-subtle">
+    <h2>Comments</h2>
+  </div>
+
+  <div class="d-flex gap-4 w-50 mb-2 px-2 py-2 border" *ngFor="let comment of post.comments">
+    <div><i class="fa-solid fa-user fa-2x"></i></div>
+    <div>
+      <h6 class="">{{comment.name}}</h6>
+      <p>{{comment.message}}</p>
+      <div class="d-flex gap-4">
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-solid fa-reply"></i>
+      </div>
+    </div>
+  </div>
+</div>

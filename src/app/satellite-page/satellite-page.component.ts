@@ -14,7 +14,10 @@ export class SatellitePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getSatellite(this.route.snapshot.params["id"]);
+    let id = Number(this.route.snapshot.params["id"])
+    setTimeout(() => {
+      this.getSatellite(id);
+    }, 500);
   }
 
   getSatellite(id: number) {

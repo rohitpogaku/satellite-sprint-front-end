@@ -1,6 +1,15 @@
 <div class="container text-center">
-  <div
-    class="row gap-4">
+  <h1>Satellites</h1>
+  <div class="d-flex justify-content-end mb-4">
+    <div class="d-flex gap-3">
+      <i role="button" (click)="toggleShowList()" class="fa-solid fa-list" [class.active]="showList"></i>
+      <i role="button" (click)="toggleShowGrid()" class="fa-solid fa-table-cells-large" [class.active]="showGrid"></i>
+    </div>
+  </div>
+  <div *ngIf="showGrid" class="row gap-4">
     <app-satellite-card *ngFor="let s of satellites" class="col" [satellite]="s"></app-satellite-card>
+  </div>
+  <div *ngIf="showList">
+    <app-satellite-table [satellites]="satellites"></app-satellite-table>
   </div>
 </div>

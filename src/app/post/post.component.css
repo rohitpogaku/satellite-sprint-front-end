@@ -1,7 +1,3 @@
-.card {
-  max-width: 500px;
-}
-
 .spinner {
   height: 70vh;
   display: flex;
@@ -13,3 +9,5 @@
   height: 70px;
   width: 70px;
 }
+
+

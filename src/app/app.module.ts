@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SatellitePageComponent } from './satellite-page/satellite-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { PostComponent } from './post/post.component';
+import { SatelliteTableComponent } from './satellite-table/satellite-table.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     PageNotFoundComponent,
     SatellitePageComponent,
-    FooterComponent
+    FooterComponent,
+    PostComponent,
+    SatelliteTableComponent
   ],
   imports: [
     BrowserModule,

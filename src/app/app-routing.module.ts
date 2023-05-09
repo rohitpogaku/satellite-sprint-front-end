@@ -7,6 +7,7 @@ import {CommunityComponent} from "./community/community.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {SatellitePageComponent} from "./satellite-page/satellite-page.component";
+import {PostComponent} from "./post/post.component";
 
 const routes: Routes = [
   {path: "home", component: HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: "community", component: CommunityComponent},
   {path: "about", component: AboutUsComponent},
   {path: "satellites/:id", component: SatellitePageComponent},
+  {path: "posts/:id", component: PostComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

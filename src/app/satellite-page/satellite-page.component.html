@@ -1,3 +1,8 @@
+<div class="spinner" *ngIf="!satellite">
+  <div class="spinner-border text-secondary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
 <div class="container" *ngIf="satellite">
   <a routerLink="/satellites" class="btn btn-outline-primary"><i class="fa-solid fa-angle-left"></i> Back</a>
   <h1 class="text-center">{{satellite.satelliteName}}</h1>
@@ -20,4 +25,4 @@
     </ul>
   </div>
 </div>
-<app-footer></app-footer>
+<app-footer *ngIf="satellite"></app-footer>
