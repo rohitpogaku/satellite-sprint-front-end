@@ -1,8 +1,10 @@
-<!--<body>
+<body>
 <div class="box">
 <span class="borderLine"></span>
+
 <form #registerform="ngForm" (ngSubmit)="submitForm(registerform.value)"  novalidate>
 <h2>Create an Account</h2>
+
 <div class="inputBox">
 <input type="text" name="firstName" #firstName="ngModel" ngModel required maxlength="10">
 <div *ngIf="firstName.errors?.['required'] && firstName.touched">Enter your first name</div>
@@ -10,6 +12,7 @@
 <span>First Name</span>
 <i></i>
 </div>
+
 <br>
 <div class="inputBox">
 <input type="text" name="lastName" #lastName="ngModel" ngModel maxlength="10">
@@ -17,6 +20,7 @@
 <i></i>
 </div>
 <br>
+
 <div class="inputBox">
 <div class="d-flex" id="Gender">
 <span>Gender</span>
@@ -27,6 +31,7 @@ Other:<input type="radio" name="gender" value="other">
 </div>
 </div>
 <br>
+
 <div class="inputBox">
 <input type="email"  name="email" #email="ngModel" ngModel required>
 <div *ngIf="email.errors?.['required'] && email.touched">Enter valid email id</div>
@@ -34,12 +39,14 @@ Other:<input type="radio" name="gender" value="other">
 <i></i>
 </div>
 <br>
+
 <div class="inputBox">
 <input type="password" name="password" #password="ngModel" ngModel required>
 <span>Password</span>
 <i></i>
 </div>
 <br>
+
 <div class="inputBox">
 <span>Country</span>
 <i></i>
@@ -48,6 +55,7 @@ Other:<input type="radio" name="gender" value="other">
 <option *ngFor="let countryname of allcountries" name="alpha2Code">{{countryname.name}}</option></select>
 </div>
 <br>
+
 <div class="inputBox">
 <span>Profile</span>
 <i></i>
@@ -60,12 +68,14 @@ Other:<input type="radio" name="gender" value="other">
 </select>
 </div>
 <br>
+
 <div class="d-flex">
 <div class="links">
 <a [routerLink]="['/login']">Already a user ?</a>
 </div>
+
 <input type="submit" value="Register">
 </div>
 </form>
 </div>
-</body>-->
+</body>
