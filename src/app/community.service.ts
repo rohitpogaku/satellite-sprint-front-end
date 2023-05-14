@@ -16,4 +16,6 @@ export class CommunityService {
   getPostById(id: number) {
     return this.http.get(`/api/v1/posts/${id}`);
   }
+
+
 }

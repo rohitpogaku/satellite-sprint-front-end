@@ -1,0 +1,222 @@
+<div class="container mt-4 mb-5" *ngIf="satelliteToBeEdited">
+  <div class="card">
+    <div class="card-header bg-primary-subtle">
+      <h1 class="text-primary-emphasis fw-normal text-center">Satellite Edit Form</h1>
+    </div>
+    <div class="card-body">
+      <form #satelliteForm="ngForm" (submit)="submit(satelliteForm.value)">
+        <div class="row row-cols-md-2">
+          <div class="mb-3 ">
+            <div class="d-flex  justify-content-end error-spans">
+              <span class="text-danger fst-italic"
+                    [hidden]="!(satelliteName.errors?.['required'] && satelliteName.touched)">
+              <small>*required</small>
+            </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(satelliteName.errors?.['pattern'] && !satelliteName.errors?.['minlength'] && satelliteName.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(satelliteName.errors?.['minlength'] && satelliteName.touched)">
+              <small>Must be at least 3 characters.</small>
+            </span>
+            </div>
+            <div class="form-floating">
+              <input type="text" #satelliteName="ngModel" [(ngModel)]="satelliteToBeEdited.satelliteName"
+                     name="satelliteName" class="form-control"
+                     id="satelliteName" placeholder="ex. Aryabhata" [required]="true" [minlength]="3" autocomplete="off"
+                     pattern="^(?!\s+$).+$" [class.is-invalid]="satelliteName.invalid">
+              <label for="satelliteName" class="form-label">Satellite Name</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-end error-spans">
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchDate.errors?.['required'] && launchDate.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <div class="form-floating">
+              <input type="date" #launchDate="ngModel" [(ngModel)]="satelliteToBeEdited.launchDate" name="launchDate"
+                     class="form-control"
+                     id="launchDate" placeholder="ex. 1975-04-19" [required]="true"
+                     [class.is-invalid]="launchDate.invalid">
+              <label for="launchDate" class="form-label">Launch Date</label>
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-md-2">
+          <div class="mb-3">
+            <div class="d-flex justify-content-end error-spans">
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchMass.errors?.['required'] && launchMass.touched)">
+              <small>*required</small>
+            </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchMass.errors?.['min'] && launchMass.touched)">
+              <small>Value must be more than 0</small>
+            </span>
+            </div>
+            <div class="form-floating">
+              <input type="number" #launchMass="ngModel"
+                     [(ngModel)]="satelliteToBeEdited.launchMass" name="launchMass"
+                     class="form-control"
+                     id="launchMass" placeholder="ex. 2000" [required]="true" [min]="1"
+                     autocomplete="off" [class.is-invalid]="launchMass.invalid">
+              <label for="launchMass" class="form-label">Launch Mass (Kg)</label>
+            </div>
+
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-end error-spans">
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchVehicle.errors?.['required'] && launchVehicle.touched)">
+              <small>*required</small>
+              </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchVehicle.errors?.['pattern'] && !launchVehicle.errors?.['minlength'] && launchVehicle.touched)">
+              <small>Input must not be black space(s)</small>
+              </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchVehicle.errors?.['minlength'] && launchVehicle.touched)">
+              <small>Must be at least 2 characters</small>
+            </span>
+            </div>
+            <div class="form-floating">
+              <input type="text" #launchVehicle="ngModel"
+                     [(ngModel)]="satelliteToBeEdited.launchVehicle"
+                     name="launchVehicle" class="form-control"
+                     id="launchVehicle" placeholder="ex. PSLV-IV" [required]="true"
+                     [minlength]="2" autocomplete="off"
+                     pattern="^(?!\s+$).+$" [class.is-invalid]="launchVehicle.invalid">
+              <label for="launchVehicle" class="form-label">Launch Vehicle</label>
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-md-2">
+          <div class="mb-3">
+            <div class="d-flex justify-content-end error-spans">
+              <span class="text-danger fst-italic"
+                    [hidden]="!(orbitTypeId.errors?.['required'] && orbitTypeId.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <div class="form-floating">
+              <select #orbitTypeId="ngModel" [(ngModel)]="satelliteToBeEdited.orbitTypeId"
+                      name="orbitTypeId"
+                      class="form-select" id="orbitType"
+                      aria-label="Select orbit type"
+                      [required]="true" [class.is-invalid]="orbitTypeId.invalid">
+                <option value="">--Select--</option>
+                <option *ngFor="let o of orbits" [value]="o.id">{{o.orbit}}</option>
+              </select>
+              <label for="orbitType" class="form-label">Orbit Type</label></div>
+
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-end error-spans">
+              <span class="text-danger fst-italic"
+                    [hidden]="!(applicationId.errors?.['required'] && applicationId.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <div class="form-floating">
+              <select #applicationId="ngModel" [(ngModel)]="satelliteToBeEdited.applicationId"
+                      name="applicationId"
+                      class="form-select" id="application"
+                      aria-label="Select application"
+                      [required]="true" [class.is-invalid]="applicationId.invalid">
+                <option value="">--Select--</option>
+                <option *ngFor="let a of applications" [value]="a.id">{{a.application}}</option>
+              </select>
+              <label for="application" class="form-label">Application</label></div>
+
+          </div>
+        </div>
+        <div class="row row-cols-md-2">
+          <div class="mb-3">
+            <div class="d-flex justify-content-end error-spans">
+              <span class="text-danger fst-italic"
+                    [hidden]="!(manufacturerId.errors?.['required'] && manufacturerId.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <div class="form-floating">
+              <select #manufacturerId="ngModel"
+                      [(ngModel)]="satelliteToBeEdited.manufacturerId" name="manufacturerId"
+                      class="form-select"
+                      id="manufacturer" aria-label="Select manufacturer"
+                      [required]="true" [class.is-invalid]="manufacturerId.invalid">
+                <option value="">--Select--</option>
+                <option *ngFor="let m of manufacturers" [value]="m.id">{{m.name}}</option>
+              </select>
+              <label for="manufacturer" class="form-label">Manufacturer</label></div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-end error-spans">
+
+              <span class="text-danger fst-italic" [hidden]="!(agencyId.errors?.['required'] && agencyId.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <div class="form-floating">
+              <select #agencyId="ngModel" [(ngModel)]="satelliteToBeEdited.agencyId"
+                      name="agencyId"
+                      class="form-select"
+                      id="agency"
+                      aria-label="Select agency"
+                      [required]="true" [class.is-invalid]="agencyId.invalid">
+                <option value="">--Select--</option>
+                <option *ngFor="let ag of agencies" [value]="ag.id">{{ag.name}}</option>
+              </select>
+              <label for="agency" class="form-label">Agency</label></div>
+          </div>
+        </div>
+        <div class="mb-3 w-50">
+          <div class="d-flex justify-content-end error-spans">
+            <span class="text-secondary text-opacity-50 fst-italic">
+              <small>(optional)</small>
+            </span>
+          </div>
+          <div class="form-floating">
+            <input type="file" #satelliteImage="ngModel" ngModel name="satelliteImage"
+                   class="form-control"
+                   id="satelliteImage" accept=".jpg, .jpeg, .png">
+            <label for="satelliteImage" class="form-label">Satellite Image</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="d-flex justify-content-end error-spans">
+            <span class="text-danger fst-italic" [hidden]="!(description.errors?.['required'] && description.touched)">
+              <small>*required</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(description.errors?.['pattern'] && !description.errors?.['minlength'] && description.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+            <span class="text-danger fst-italic" [hidden]="!(description.errors?.['minlength'] && description.touched)">
+              <small>Enter at least 15 characters</small>
+            </span>
+          </div>
+          <div class="form-floating">
+            <textarea #description="ngModel" [(ngModel)]="satelliteToBeEdited.description"
+                      name="description"
+                      class="form-control description"
+                      placeholder="Write description..." id="description" [required]="true"
+                      [minlength]="15"
+                      autocomplete="off" pattern="^(?!\s+$).+$" [class.is-invalid]="description.invalid"
+            ></textarea>
+            <label for="description" class="form-label">Description</label></div>
+        </div>
+        <div class="d-flex gap-4">
+          <button type="submit" class="btn btn-primary flex-grow-1" [disabled]="satelliteForm.invalid">Submit</button>
+          <div class="btn-group" role="group" aria-label="clear and cancel buttons">
+            <button type="reset" class="btn btn-outline-warning">Clear</button>
+            <button type="button" class="btn btn-outline-danger" routerLink="/satellites">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

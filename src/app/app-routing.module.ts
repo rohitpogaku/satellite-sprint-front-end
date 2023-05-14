@@ -8,13 +8,17 @@ import {AboutUsComponent} from "./about-us/about-us.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {SatellitePageComponent} from "./satellite-page/satellite-page.component";
 import {PostComponent} from "./post/post.component";
+import {SatelliteEditComponent} from "./satellite-edit/satellite-edit.component";
+import {SatelliteCreateComponent} from "./satellite-create/satellite-create.component";
 
 const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "satellites", component: SatelliteListComponent},
   {path: "community", component: CommunityComponent},
   {path: "about", component: AboutUsComponent},
+  {path: "satellites/create", component: SatelliteCreateComponent},
   {path: "satellites/:id", component: SatellitePageComponent},
+  {path: "satellites/:id/edit", component: SatelliteEditComponent},
   {path: "posts/:id", component: PostComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}

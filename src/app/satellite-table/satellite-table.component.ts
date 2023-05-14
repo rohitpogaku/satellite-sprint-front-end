@@ -1,5 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Router} from "@angular/router";
+import Satellite from "../shared/satellite";
+import {SatelliteService} from "../satellite.service";
 
 @Component({
   selector: 'app-satellite-table',
@@ -7,18 +9,35 @@ import {Router} from "@angular/router";
   styleUrls: ['./satellite-table.component.css']
 })
 export class SatelliteTableComponent {
-  @Input() satellites: any;
+  @Input() satellites: Satellite[] = [];
 
-  constructor(private router: Router) {
+  satelliteNameToBeDeleted = {
+    satelliteId: undefined,
+    satelliteName: ""
+  };
+
+
+  constructor(private router: Router, private satelliteService: SatelliteService) {
   }
 
   handleRowClick(event: any) {
     const clickedElement = event.target;
-    console.log(event)
     const isLastColumn = clickedElement.cellIndex ? clickedElement.cellIndex === event.currentTarget.cells.length - 1 : true;
     if (!isLastColumn) {
       let id = event.currentTarget.cells[0].textContent.trim();
       this.router.navigateByUrl(`/satellites/${id}`);
     }
+  }
+
+  setSatelliteToBeDeleted(satelliteToDelete: any) {
+    this.satelliteNameToBeDeleted.satelliteId = satelliteToDelete.sateliteId;
+    this.satelliteNameToBeDeleted.satelliteName = satelliteToDelete.satelliteName;
+  }
+
+  setSatelliteToBeEdited(satelliteId: number) {
+    this.router.navigateByUrl(`satellites/${satelliteId}/edit`);
+  }
+
+  deleteSatellite(satelliteId: any) {
   }
 }

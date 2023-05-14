@@ -1,0 +1,12 @@
+.carousel .carousel-item {
+  width: 100vw;
+  height: 60vh;
+}
+
+.carousel-item img {
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+}

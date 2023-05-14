@@ -1,15 +1,97 @@
-<div class="container text-center">
+<div class="container text-center mt-2">
   <h1>Satellites</h1>
-  <div class="d-flex justify-content-end mb-4">
-    <div class="d-flex gap-3">
-      <i role="button" (click)="toggleShowList()" class="fa-solid fa-list" [class.active]="showList"></i>
-      <i role="button" (click)="toggleShowGrid()" class="fa-solid fa-table-cells-large" [class.active]="showGrid"></i>
+  <div class="d-flex flex-column flex-md-row gap-2 my-4">
+    <input [(ngModel)]="filterBy" class="form-control border-black filterby" type="search"
+           placeholder="Search"
+           aria-label="Search">
+    <div class="d-flex gap-2">
+      <div class="dropdown dropdown-filter flex-grow-1">
+        <button class="btn btn-outline-dark w-100" type="button" data-bs-toggle="dropdown" data-bs-offset="0,10"
+                data-bs-auto-close="outside"
+                aria-expanded="true">
+          Filter by <i class="bi bi-funnel"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-filter" #dropdownMenu>
+          <form>
+            <div class="d-flex flex-wrap gap-2">
+              <div>
+                <h2 class="dropdown-header">Orbit Type</h2>
+                <div *ngFor="let o of orbits" class="form-check mx-3">
+                  <input [(ngModel)]="orbitFormValues[o.orbit]" class="form-check-input" type="checkbox" name="orbit"
+                         [value]="o.orbit" [id]="'orbit-' + o.id">
+                  <label class="form-check-label" [for]="'orbit-' + o.id">
+                    {{o.orbit}}
+                  </label>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div>
+                <h2 class="dropdown-header">Manufacturer</h2>
+                <div *ngFor="let m of manufacturers" class="form-check mx-3">
+                  <input [(ngModel)]="manufacturerFormValues[m.name]" class="form-check-input" type="checkbox"
+                         name="manufacturer" [value]="m.id"
+                         [id]="'manufacturer-' + m.id">
+                  <label class="form-check-label" [for]="'manufacturer-' + m.id">
+                    {{m.name}}
+                  </label>
+                </div>
+              </div>
+              <div>
+                <h2 class="dropdown-header">Agency</h2>
+                <div *ngFor="let a of agencies" class="form-check mx-3">
+                  <input [(ngModel)]="agencyFormValues[a.name]" class="form-check-input" type="checkbox" name="agency"
+                         [value]="a.id"
+                         [id]="'agency-' + a.id">
+                  <label class="form-check-label" [for]="'agency-' + a.id">
+                    {{a.name}}
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="btn-group d-flex justify-content-center justify-content-lg-end my-2 me-4">
+              <button (click)="filterInputData()" class="btn btn-dark filter-submit-btn">
+                Filter
+              </button>
+              <button (click)="filterClearAll()" class="btn btn-outline-dark filter-clear-btn">Clear All</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="dropdown flex-grow-1">
+        <button class="btn btn-outline-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                data-bs-offset="0,10"
+                aria-expanded="false">
+          Category
+        </button>
+        <ul class="dropdown-menu dropdown-menu-application-list ">
+          <li class="dropdown-item" (click)="filterBasedOnApplication('')">All</li>
+          <li class="dropdown-item" (click)="filterBasedOnApplication(a.application)"
+              *ngFor="let a of applications">{{a.application}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex gap-3 align-items-center justify-content-end ms-auto">
+      <i role="button" (click)="toggleShowList()" class="bi bi-table" [class.active]="showList"
+         title="tabular view"></i>
+      <i role="button" (click)="toggleShowGrid()" class="bi bi-grid " [class.active]="showGrid" title="card view"></i>
     </div>
   </div>
-  <div *ngIf="showGrid" class="row gap-4">
-    <app-satellite-card *ngFor="let s of satellites" class="col" [satellite]="s"></app-satellite-card>
+  <div class="spinner" *ngIf="isFilteredListLoading">
+    <div class="spinner-border text-secondary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </div>
-  <div *ngIf="showList">
-    <app-satellite-table [satellites]="satellites"></app-satellite-table>
+  <div *ngIf="!filteredSatellites.length && !isFilteredListLoading" class="mt-5">
+    <p class="fs-4">We're sorry <i class="fa-solid fa-face-sad-tear"></i>. We were not able to find a
+      match.</p>
+    <p class="fs-5">Try Another Search or filter!</p>
+  </div>
+  <div *ngIf="filteredSatellites.length">
+    <div *ngIf="showGrid" class="row gap-4">
+      <app-satellite-card *ngFor="let s of filteredSatellites" class="col" [satellite]="s"></app-satellite-card>
+    </div>
+    <div *ngIf="showList">
+      <app-satellite-table [satellites]="filteredSatellites"></app-satellite-table>
+    </div>
   </div>
 </div>

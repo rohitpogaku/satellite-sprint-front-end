@@ -14,7 +14,7 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let id = +this.route.snapshot.params["id"];
+    const id = +this.route.snapshot.params["id"];
     setTimeout(() => {
       this.getPost(id);
     }, 500);

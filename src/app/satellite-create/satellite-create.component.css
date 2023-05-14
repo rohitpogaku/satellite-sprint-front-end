@@ -1,0 +1,15 @@
+.container {
+  /*min-width: 200px;*/
+  /*max-width: x;*/
+}
+
+.description {
+  height: auto;
+  min-height: 200px;
+  resize: none;
+}
+
+.card {
+  max-width: 768px; /* TODO: Make card to take 80% of the width */
+  margin: 0 auto;
+}

@@ -11,13 +11,13 @@
   </div>
 
   <div class="d-flex gap-4 w-50 mb-2 px-2 py-2 border" *ngFor="let comment of post.comments">
-    <div><i class="fa-solid fa-user fa-2x"></i></div>
+    <div><i class="bi bi-person h3"></i></div>
     <div>
       <h6 class="">{{comment.name}}</h6>
       <p>{{comment.message}}</p>
       <div class="d-flex gap-4">
-        <i class="fa-regular fa-heart"></i>
-        <i class="fa-solid fa-reply"></i>
+        <i class="bi bi-heart"></i>
+        <i class="bi bi-reply"></i>
       </div>
     </div>
   </div>

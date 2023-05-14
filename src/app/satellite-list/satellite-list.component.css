@@ -1,3 +1,71 @@
 .active {
   color: var(--bs-primary);
 }
+
+/*.dropdown-menu-filter {*/
+/*  min-width: 30vw;*/
+/*}*/
+
+.dropdown-filter {
+  position: static;
+}
+
+.dropdown-menu-filter {
+  width: 90%;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.filter-submit-btn,
+.filter-clear-btn {
+  max-width: 100px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e7e7e7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #525252;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
+.dropdown-menu-application-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.spinner {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-border {
+  height: 70px;
+  width: 70px;
+}
+
+@media screen and (min-width: 768px) {
+  .filterby {
+    width: 300px;
+  }
+
+  .dropdown-menu-filter {
+    width: 60%;
+  }
+}

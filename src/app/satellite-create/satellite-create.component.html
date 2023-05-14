@@ -1,0 +1,189 @@
+<div class="container mt-4 mb-5">
+  <div class="card">
+    <div class="card-header bg-primary-subtle">
+      <h1 class="text-primary-emphasis fw-normal text-center">Satellite Create Form</h1>
+    </div>
+    <div class="card-body">
+      <form #satelliteForm="ngForm" (submit)="submit(satelliteForm.value)">
+        <div class="row row-cols-md-2">
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label for="satelliteName" class="form-label">Satellite Name</label>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(satelliteName.errors?.['required'] && satelliteName.touched)">
+              <small>*required</small>
+            </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(satelliteName.errors?.['pattern'] && !satelliteName.errors?.['minlength'] && satelliteName.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(satelliteName.errors?.['minlength'] && satelliteName.touched)">
+              <small>Must be at least 3 characters.</small>
+            </span>
+            </div>
+            <input type="text" #satelliteName="ngModel" ngModel name="satelliteName" class="form-control"
+                   [ngClass]="{'is-invalid': satelliteName.touched && satelliteName.invalid, 'is-valid': satelliteName.valid}"
+                   id="satelliteName" placeholder="ex. Aryabhata" [required]="true" [minlength]="3" autocomplete="off"
+                   pattern="^(?!\s+$).+$">
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label for="launchDate" class="form-label">Launch Date</label>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchDate.errors?.['required'] && launchDate.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <input type="date" #launchDate="ngModel" ngModel name="launchDate" class="form-control"
+                   [ngClass]="{'is-invalid': launchDate.touched && launchDate.invalid, 'is-valid': launchDate.valid}"
+                   id="launchDate" placeholder="ex. 1975-04-19" [required]="true">
+          </div>
+        </div>
+        <div class="row row-cols-md-2">
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label for="launchMass" class="form-label">Launch Mass (Kg)</label>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchMass.errors?.['required'] && launchMass.touched)">
+              <small>*required</small>
+            </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchMass.errors?.['min'] && launchMass.touched)">
+              <small>Value must be more than 0</small>
+            </span>
+            </div>
+            <input type="number" #launchMass="ngModel" ngModel name="launchMass" class="form-control"
+                   [ngClass]="{'is-invalid': launchMass.touched && launchMass.invalid, 'is-valid': launchMass.valid}"
+                   id="launchMass" placeholder="ex. 2000" [required]="true" [min]="1" autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label for="launchVehicle" class="form-label">Launch Vehicle</label>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchVehicle.errors?.['required'] && launchVehicle.touched)">
+              <small>*required</small>
+            </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchVehicle.errors?.['pattern'] && !launchVehicle.errors?.['minlength'] && launchVehicle.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(launchVehicle.errors?.['minlength'] && launchVehicle.touched)">
+              <small>Must be at least 2 characters</small>
+            </span>
+            </div>
+            <input type="text" #launchVehicle="ngModel" ngModel name="launchVehicle" class="form-control"
+                   [ngClass]="{'is-invalid': launchVehicle.touched && launchVehicle.invalid, 'is-valid': launchVehicle.valid}"
+                   id="launchVehicle" placeholder="ex. PSLV-IV" [required]="true" [minlength]="2" autocomplete="off"
+                   pattern="^(?!\s+$).+$">
+          </div>
+        </div>
+        <div class="row row-cols-md-2">
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label for="orbitType" class="form-label">Orbit Type</label>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(orbitTypeId.errors?.['required'] && orbitTypeId.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <select #orbitTypeId="ngModel" ngModel="" name="orbitTypeId" class="form-select" id="orbitType"
+                    aria-label="Select orbit type"
+                    [ngClass]="{'is-invalid': orbitTypeId.touched && orbitTypeId.invalid, 'is-valid': orbitTypeId.valid}"
+                    [required]="true">
+              <option value="">--Select--</option>
+              <option *ngFor="let o of orbits" [value]="o.id">{{o.orbit}}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label for="application" class="form-label">Application</label>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(applicationId.errors?.['required'] && applicationId.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <select #applicationId="ngModel" ngModel="" name="applicationId" class="form-select" id="application"
+                    aria-label="Select application"
+                    [ngClass]="{'is-invalid': applicationId.touched && applicationId.invalid, 'is-valid': applicationId.valid}"
+                    [required]="true">
+              <option value="">--Select--</option>
+              <option *ngFor="let a of applications" [value]="a.id">{{a.application}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row row-cols-md-2">
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label for="manufacturer" class="form-label">Manufacturer</label>
+              <span class="text-danger fst-italic"
+                    [hidden]="!(manufacturerId.errors?.['required'] && manufacturerId.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <select #manufacturerId="ngModel" ngModel="" name="manufacturerId" class="form-select"
+                    id="manufacturer" aria-label="Select manufacturer"
+                    [ngClass]="{'is-invalid': manufacturerId.touched && manufacturerId.invalid, 'is-valid': manufacturerId.valid}"
+                    [required]="true">
+              <option value="">--Select--</option>
+              <option *ngFor="let m of manufacturers" [value]="m.id">{{m.name}}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label for="agency" class="form-label">Agency</label>
+              <span class="text-danger fst-italic" [hidden]="!(agencyId.errors?.['required'] && agencyId.touched)">
+              <small>*required</small>
+            </span>
+            </div>
+            <select #agencyId="ngModel" ngModel="" name="agencyId" class="form-select" id="agency"
+                    aria-label="Select agency"
+                    [ngClass]="{'is-invalid': agencyId.touched && agencyId.invalid, 'is-valid': agencyId.valid}"
+                    [required]="true">
+              <option value="">--Select--</option>
+              <option *ngFor="let ag of agencies" [value]="ag.id">{{ag.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3 w-50">
+          <div class="d-flex justify-content-between">
+            <label for="satelliteImage" class="form-label">Satellite Image</label>
+            <span class="text-secondary text-opacity-50 fst-italic">
+              <small>(optional)</small>
+            </span>
+          </div>
+          <input type="file" #satelliteImage="ngModel" ngModel name="satelliteImage" class="form-control"
+                 id="satelliteImage" accept=".jpg, .jpeg, .png">
+        </div>
+        <div class="mb-3">
+          <div class="d-flex justify-content-between">
+            <label for="description" class="form-label">Description</label>
+            <span class="text-danger fst-italic" [hidden]="!(description.errors?.['required'] && description.touched)">
+              <small>*required</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(description.errors?.['pattern'] && !description.errors?.['minlength'] && description.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+            <span class="text-danger fst-italic" [hidden]="!(description.errors?.['minlength'] && description.touched)">
+              <small>Enter at least 15 characters</small>
+            </span>
+          </div>
+          <textarea #description="ngModel" ngModel name="description" class="form-control description"
+                    placeholder="Write description..." id="description" [required]="true" [minlength]="15"
+                    autocomplete="off" pattern="^(?!\s+$).+$"
+                    [ngClass]="{'is-invalid': description.touched && description.invalid, 'is-valid': description.valid}"
+          ></textarea>
+        </div>
+        <div class="d-flex gap-4">
+          <button type="submit" class="btn btn-primary flex-grow-1" [disabled]="satelliteForm.invalid">Submit</button>
+          <div class="btn-group" role="group" aria-label="clear and cancel buttons">
+            <button type="reset" class="btn btn-outline-warning">Clear</button>
+            <button type="button" class="btn btn-outline-danger" routerLink="/satellites">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
