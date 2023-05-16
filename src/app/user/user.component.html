@@ -1,0 +1,80 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Users</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink=""></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--Main Content-->
+  <div class="mt-5">
+    <h1 class="text-center">View User Data</h1>
+    <div class="container">
+      <!--Add User Button-->
+      <!-- <div class="my-3">
+              <a routerLink="/useradd"><button type="button" class="btn btn-primary">Add User</button></a>
+            </div> -->
+      <table class="table border">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Role</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of user">
+            <td>{{u.id}}</td>
+            <td>{{u.firstname}}</td>
+            <td>{{u.lastname}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.gender}}</td>
+            <td>{{u.role}}</td>
+
+            <td>
+              <li class="list-inline-item">
+                <a routerLink="/useradd"> <button class="btn btn-primary btn-sm rounded-0" type="button"
+                    data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button></a>
+              </li>
+
+              <li class="list-inline-item">
+                <button class="btn btn-success btn-sm rounded-0" type="button" (click)="updateUser(u.id)"
+                  data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+              </li>
+
+              <li class="list-inline-item">
+                <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteUser(u.id)"
+                  data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+              </li>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+

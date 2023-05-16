@@ -9,6 +9,9 @@ import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {SatellitePageComponent} from "./satellite-page/satellite-page.component";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { UserComponent } from './user/user.component';
+import { UseraddComponent } from './useradd/useradd.component';
+import { UsereditComponent } from './useredit/useredit.component';
 
 const routes: Routes = [
   {path: "home", component: HomeComponent},
@@ -19,7 +22,11 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
   {path: "satellites/:id", component: SatellitePageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path:"user",component:UserComponent},
+  {path:"useradd",component:UseraddComponent},
+  {path:"useredit/:id",component:UsereditComponent},
   {path: '**', component: PageNotFoundComponent}
+  
 ];
 
 @NgModule({

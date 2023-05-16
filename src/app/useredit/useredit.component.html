@@ -1,0 +1,99 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href=""></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+<!--Main Content-->
+<div class="my-5">
+    <div class="mx-auto w-25 " style="max-width:100%;">
+      <h2 class="text-center mb-3">Update User</h2>
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <!--name-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="firstname" class="form-label">FirstName</label>
+            <input id="name"  formControlName="firstname" type="text" name="firstname" class="form-control"  required>
+          </div>
+        </div>
+
+        <!--name-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="lastname" class="form-label">LastName</label>
+            <input id="name"  formControlName="lastname" type="text" name="lastname" class="form-control"  required>
+          </div>
+        </div>
+
+        <!--Email-->
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" type="email"  formControlName="email" name="email" class="form-control" required>
+          </div>
+        </div>
+        
+        <!--gender-->
+        <div class="form-group">
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select id="gender" name="gender" class="form-control" formControlName="gender" required>
+                <option value="">--Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+          </div>
+        </div>
+        </div>
+       
+        <!--Role-->
+        <div class="form-group">
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select id="role" name="role" class="form-control" formControlName="role" required>
+              <option value="">--Select--</option>
+              <option value="user">User</option>
+              <option value="scientist">Scientist</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <input class="btn btn-primary w-100" type="submit" value="Submit">
+          </div>
+        </div>
+
+        <div>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+

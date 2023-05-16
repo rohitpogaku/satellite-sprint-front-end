@@ -12,6 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background:#424551;
+    background-image:  url(/assets/north-star.jpg);
 }
 
 .box {

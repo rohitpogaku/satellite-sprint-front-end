@@ -20,4 +20,12 @@ export class SatelliteService {
   getCountries(){
     return this.http.get("https://restcountries.com/v2/all");
   }
+  addUserInfo(user: any){
+    return this.http.post("/api/v1/register/save",user);
+  }
+  
+  getUserInfo(email:any,password:any){
+    return this.http.get(`/api/v1/register/authenticate/${email}/${password}`);
+  }
+ 
 }

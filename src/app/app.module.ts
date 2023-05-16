@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -15,7 +16,10 @@ import { SatellitePageComponent } from './satellite-page/satellite-page.componen
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserComponent } from './user/user.component';
+import { UsereditComponent } from './useredit/useredit.component';
+import { UseraddComponent } from './useradd/useradd.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +34,17 @@ import { FormsModule } from '@angular/forms';
     SatellitePageComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserComponent,
+    UsereditComponent,
+    UseraddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
