@@ -2,6 +2,10 @@
   color: var(--bs-primary);
 }
 
+.nav-margin-placeholder {
+  height: 12vh;
+}
+
 /*.dropdown-menu-filter {*/
 /*  min-width: 30vw;*/
 /*}*/

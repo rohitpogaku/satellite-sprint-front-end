@@ -1,0 +1,56 @@
+.about-us-body {
+  background: rgb(22, 32, 65);
+  background: linear-gradient(120deg, rgba(22, 32, 65, 1) 0%, rgba(7, 9, 24, 1) 100%);
+}
+
+.about-us-hero-image-container {
+  height: 70vh;
+  background-image: url("/assets/images/satellite-dish.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.about-us-hero-image-container::-webkit-scrollbar {
+  display: none;
+}
+
+.about-us-section {
+  height: 100%;
+  border: solid lightblue;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: rgba(29, 59, 88, .8);
+  color: ghostwhite;
+}
+
+.container {
+  margin-top: -10vh;
+  padding-bottom: 10vh;
+}
+
+.list-group-item {
+  color: ghostwhite;
+  background-color: inherit;
+}
+
+.social-link {
+  text-decoration: none;
+  color: ghostwhite;
+}
+
+.fb:hover {
+  color: #4267B2;
+}
+
+.insta:hover {
+  color: #C13584;
+}
+
+.tw:hover {
+  color: #1DA1F2;
+}
+
+.yt:hover {
+  color: #FF0000;
+}

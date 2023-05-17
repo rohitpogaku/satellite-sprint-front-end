@@ -8,6 +8,7 @@ tr {
 
 table {
   margin-bottom: 0;
+  background-color: #20262e !important;
 }
 
 .add-button {
@@ -24,11 +25,11 @@ table {
   border-color: var(--bs-success);
   border-width: 2px;
   cursor: pointer;
-  background-color: var(--bs-success-bg-subtle);
+  background-color: white;
 }
 
 .add-button:hover > .bi-plus {
   transform: scale(1.15);
-  color: var(--bs-success);
+  color: black;
   transition: transform 0.2s ease-in-out;
 }

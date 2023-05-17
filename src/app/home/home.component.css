@@ -10,3 +10,86 @@
   left: 0;
   min-height: 100%;
 }
+
+.hero {
+  height: 90vh;
+  /*position: relative;*/
+}
+
+.hero-title {
+  margin-top: 7vh;
+  margin-bottom: 0;
+  text-shadow: 0 0 1px black;
+}
+
+.hero-caption {
+  margin-top: -1vh;
+  line-height: 1.1;
+  color: #edac29;
+  text-shadow: 1px 1px 2px black;
+}
+
+.hero-description {
+  /*margin: 8vh 5vw 40px;*/
+  text-shadow: 0 0 2px black;
+
+}
+
+.hero-call-to-action {
+  margin-top: 5vh;
+}
+
+.hero-bg {
+  height: 90vh;
+  background-image: url("/assets/images/earth-from-space.jpg");
+  background-size: cover;
+  background-position: top;
+}
+
+.agency-cards-section {
+  background-color: var(--sa-light);
+}
+
+.card {
+  max-width: 350px;
+  box-shadow: 1px 2px 2px #13171c;
+  background-color: #20262e;
+  color: white;
+}
+
+.agency-logo {
+  height: 200px;
+  width: 100%;
+  background-size: contain;
+}
+
+/*.feature-section {*/
+/*  background-color: #20262e;*/
+/*}*/
+
+.number-icon {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #bbd3f5;
+  color: #20262e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-card {
+  height: 350px;
+  width: 400px;
+  background-color: #2a323d;
+  border-radius: 8px;
+  /*box-shadow: 0 0 3px #a9b7c2;*/
+  padding: 10px 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .hero-description {
+    margin: 7vh 0 20px;
+  }
+}

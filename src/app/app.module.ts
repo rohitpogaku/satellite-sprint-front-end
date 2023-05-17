@@ -18,7 +18,10 @@ import {SatelliteTableComponent} from './satellite-table/satellite-table.compone
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SatelliteEditComponent} from './satellite-edit/satellite-edit.component';
 import {NgOptimizedImage} from "@angular/common";
-import { SatelliteCreateComponent } from './satellite-create/satellite-create.component';
+import {SatelliteCreateComponent} from './satellite-create/satellite-create.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ButtonModule} from "primeng/button";
+import {CardModule} from "primeng/card";
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { SatelliteCreateComponent } from './satellite-create/satellite-create.co
     HttpClientModule,
     FormsModule,
     NgOptimizedImage,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ButtonModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

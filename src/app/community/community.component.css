@@ -1,3 +1,7 @@
+.nav-margin-placeholder {
+  height: 12vh;
+}
+
 p, .card-title {
   display: -webkit-box; /* Set the display to a box layout */
   -webkit-box-orient: vertical; /* Set the box orientation to vertical */

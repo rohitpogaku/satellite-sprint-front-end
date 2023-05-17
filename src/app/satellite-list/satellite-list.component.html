@@ -1,12 +1,13 @@
-<div class="container text-center mt-2">
-  <h1>Satellites</h1>
+<div class="nav-margin-placeholder"></div>
+<div class="container">
+  <h1 class="display-5 text-center ">Satellites</h1>
   <div class="d-flex flex-column flex-md-row gap-2 my-4">
     <input [(ngModel)]="filterBy" class="form-control border-black filterby" type="search"
            placeholder="Search"
            aria-label="Search">
     <div class="d-flex gap-2">
       <div class="dropdown dropdown-filter flex-grow-1">
-        <button class="btn btn-outline-dark w-100" type="button" data-bs-toggle="dropdown" data-bs-offset="0,10"
+        <button class="btn btn-outline-info w-100" type="button" data-bs-toggle="dropdown" data-bs-offset="0,10"
                 data-bs-auto-close="outside"
                 aria-expanded="true">
           Filter by <i class="bi bi-funnel"></i>
@@ -58,7 +59,7 @@
         </div>
       </div>
       <div class="dropdown flex-grow-1">
-        <button class="btn btn-outline-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+        <button class="btn btn-outline-info dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
                 data-bs-offset="0,10"
                 aria-expanded="false">
           Category
