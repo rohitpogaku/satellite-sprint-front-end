@@ -21,8 +21,8 @@
   color: #ffffff;
 }
 
-.login-btn,
-.register-btn {
+#login-btn,
+#register-btn {
   width: 100px;
 }
 
@@ -41,4 +41,10 @@
   right: 0;
   backdrop-filter: blur(5px);
   z-index: 999;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-nav {
+    margin: 0 auto;
+  }
 }

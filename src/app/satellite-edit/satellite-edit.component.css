@@ -1,5 +1,5 @@
 .container {
-  max-width: 768px;
+  /*max-width: 768px;*/
 }
 
 .description {
@@ -11,4 +11,59 @@
 .error-spans {
   height: 22px;
   margin-bottom: 2px;
+}
+
+.nav-margin-placeholder {
+  height: 5vh;
+}
+
+.form-control:focus ~ .form-label, .form-label {
+  color: #bbd3f5 !important;
+}
+
+.form-label::after {
+  background-color: transparent !important;
+}
+
+/*.form-label::after:focus {*/
+/*  color: white !important;*/
+/*}*/
+
+
+.card {
+  max-width: 80%;
+  margin: 0 auto;
+  border-color: var(--sa-light);
+  color: whitesmoke;
+}
+
+.card-header {
+  background-color: #bbd3f5;
+  color: var(--sa-dark);
+  text-shadow: 3px 3px 3px #525252;
+  border-color: var(--sa-light);
+}
+
+.card-body {
+  background-color: var(--sa-light);
+}
+
+input,
+select,
+textarea,
+input:focus,
+select:active,
+textarea:active {
+  background-color: var(--sa-dark) !important;
+  border-color: var(--sa-dark);
+  color: white !important;
+}
+
+::placeholder {
+  color: ghostwhite;
+  opacity: 0.3;
+}
+
+option {
+  color: ghostwhite;
 }

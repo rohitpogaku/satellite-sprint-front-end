@@ -8,8 +8,12 @@ tr {
 
 table {
   margin-bottom: 0;
-  background-color: #20262e !important;
 }
+
+/*.table-container {*/
+/*  padding: 3vh 4vh;*/
+/*  background-color: var(--sa-light);*/
+/*}*/
 
 .add-button {
   height: 40px;
@@ -22,10 +26,10 @@ table {
 }
 
 .add-button:hover {
-  border-color: var(--bs-success);
-  border-width: 2px;
+  /*border-color: var(--bs-success);*/
+  /*border-width: 2px;*/
   cursor: pointer;
-  background-color: white;
+  background-color: var(--bs-info-bg-subtle);
 }
 
 .add-button:hover > .bi-plus {

@@ -3,7 +3,18 @@
 }
 
 .nav-margin-placeholder {
-  height: 12vh;
+  height: 8vh;
+}
+
+.filterby {
+  background-color: var(--sa-light);
+  border: none;
+  color: white;
+}
+
+.filterby::placeholder {
+  color: white;
+  opacity: 0.3;
 }
 
 /*.dropdown-menu-filter {*/
@@ -24,7 +35,7 @@
 
 .filter-submit-btn,
 .filter-clear-btn {
-  max-width: 100px;
+  max-width: 120px;
 }
 
 ::-webkit-scrollbar {

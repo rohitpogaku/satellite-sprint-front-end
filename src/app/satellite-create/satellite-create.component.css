@@ -3,6 +3,10 @@
   /*max-width: x;*/
 }
 
+.nav-margin-placeholder {
+  height: 5vh;
+}
+
 .description {
   height: auto;
   min-height: 200px;
@@ -10,6 +14,39 @@
 }
 
 .card {
-  max-width: 768px; /* TODO: Make card to take 80% of the width */
+  max-width: 80%;
   margin: 0 auto;
+  border-color: var(--sa-light);
+  color: whitesmoke;
+}
+
+.card-header {
+  background-color: #bbd3f5;
+  color: var(--sa-dark);
+  text-shadow: 3px 3px 3px #525252;
+  border-color: var(--sa-light);
+}
+
+.card-body {
+  background-color: var(--sa-light);
+}
+
+input,
+select,
+textarea,
+input:focus,
+select:active,
+textarea:active {
+  background-color: var(--sa-dark) !important;
+  border-color: var(--sa-dark);
+  color: ghostwhite !important;
+}
+
+::placeholder {
+  color: ghostwhite;
+  opacity: 0.3;
+}
+
+option {
+  color: ghostwhite;
 }

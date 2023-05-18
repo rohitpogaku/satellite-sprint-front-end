@@ -7,6 +7,21 @@ p {
 }
 
 .card {
+  background-color: var(--sa-light);
+  color: whitesmoke;
   min-width: 200px;
+}
+
+.bi-arrow-right {
+  margin-left: 5px;
+}
+
+.view-link {
+  text-decoration: none;
+}
+
+.view-link:hover .bi-arrow-right {
+  margin-left: 10px;
+  transition: all 0.5s ease-in-out;
 }
 
