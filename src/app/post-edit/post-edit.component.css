@@ -1,0 +1,15 @@
+.container {
+    max-width: 768px;
+  }
+  
+  .content {
+    /* height: auto; */
+    min-height: 200px;
+    resize: none;
+  }
+  
+  .error-spans {
+    height: 22px;
+    margin-bottom: 2px;
+  }
+  

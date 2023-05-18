@@ -10,6 +10,7 @@ import {SatellitePageComponent} from "./satellite-page/satellite-page.component"
 import {PostComponent} from "./post/post.component";
 import {SatelliteEditComponent} from "./satellite-edit/satellite-edit.component";
 import {SatelliteCreateComponent} from "./satellite-create/satellite-create.component";
+import { PostEditComponent } from './post-edit/post-edit.component';
 
 const routes: Routes = [
   {path: "home", component: HomeComponent},
@@ -20,8 +21,12 @@ const routes: Routes = [
   {path: "satellites/:id", component: SatellitePageComponent},
   {path: "satellites/:id/edit", component: SatelliteEditComponent},
   {path: "posts/:id", component: PostComponent},
+  {path: "posts/:id/edit", component: PostEditComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
+
   {path: '**', component: PageNotFoundComponent}
+
+
 ];
 
 @NgModule({

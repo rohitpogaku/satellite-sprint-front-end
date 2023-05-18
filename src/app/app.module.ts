@@ -19,6 +19,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SatelliteEditComponent} from './satellite-edit/satellite-edit.component';
 import {NgOptimizedImage} from "@angular/common";
 import { SatelliteCreateComponent } from './satellite-create/satellite-create.component';
+import { PostEditComponent } from './post-edit/post-edit.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,10 @@ import { SatelliteCreateComponent } from './satellite-create/satellite-create.co
     PostComponent,
     SatelliteTableComponent,
     SatelliteEditComponent,
-    SatelliteCreateComponent
+    SatelliteCreateComponent,
+    PostEditComponent,
+   
+    
   ],
   imports: [
     BrowserModule,

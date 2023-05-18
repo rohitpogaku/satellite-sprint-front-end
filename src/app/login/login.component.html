@@ -1,0 +1,29 @@
+<body>
+<div class="box">
+    <span class="borderLine"></span>
+    <form>
+        <h2>Login</h2>
+        <div class="inputBox">
+            <input type="email" name="email" #email="ngModel" ngModel required>
+            <div *ngIf="email.errors?.['required'] && email.touched">Enter valid email id</div>
+            <span>Email ID</span>
+            <i></i>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="password" name="password" #password="ngModel" ngModel required minlength="4" maxlength="8">
+                <div *ngIf="password.errors?.['required'] && password.touched">Enter your password</div>
+                <div *ngIf="password.errors?.['minlength'] && password.touched">Please enter characters having minlength 4</div>
+                <div *ngIf="password.errors?.['maxlength'] && password.touched">Please enter characters having maxlength 8</div>
+                <span>Password</span>
+                <i></i>
+            </div>
+            <br>
+            <div class="links">
+                <a href="#">Forgot Password ?</a>
+                <a [routerLink]="['/register']">Register</a>
+            </div>
+            <input type="submit" value="Login">
+         </form>
+</div>
+</body>
