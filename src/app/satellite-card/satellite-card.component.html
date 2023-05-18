@@ -1,10 +1,13 @@
 <div class="card">
   <div class="card-body text-start">
-    <h5 class="card-title">{{satellite.satellite_name}}</h5>
-    <h6 class="card-subtitle mb-2 text-white-50">{{satellite.application}}</h6>
-    <p class="card-text">{{satellite.description}}</p>
-    <a [routerLink]="['/satellites', satellite.satellite_id]" class="text-info view-link">View
-      Satellite<i
-        class="bi bi-arrow-right"></i></a>
+    <img [src]="imageUrl" class="card-img-top satellite-image" *ngIf="imageUrl">
+    <div class="card-body">
+      <h5 class="card-title">{{satellite.satellite_name}}</h5>
+      <h6 class="card-subtitle mb-2 text-white-50">{{satellite.application}}</h6>
+      <p class="card-text">{{satellite.description}}</p>
+      <a [routerLink]="['/satellites', satellite.satellite_id]" class="text-info view-link">View
+        Satellite<i
+          class="bi bi-arrow-right"></i></a>
+    </div>
   </div>
 </div>

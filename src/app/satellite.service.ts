@@ -36,6 +36,10 @@ export class SatelliteService {
     return this.http.get("api/v1/agencies");
   }
 
+  getImage(id: any) {
+    return this.http.get(`api/v1/images/${id}`, {responseType: 'blob'});
+  }
+
   // Helper Methods
   saveSatelliteCache(data: Satellite[]) {
     this.satelliteCacheData = data;

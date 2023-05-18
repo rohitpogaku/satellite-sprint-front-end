@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {SatelliteService} from "../satellite.service";
 import Satellite from "../shared/satellite";
+import {HttpClient} from "@angular/common/http";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-satellite-create',
@@ -14,6 +16,7 @@ export class SatelliteCreateComponent implements OnInit {
   applications: any;
   manufacturers: any;
   agencies: any;
+
 
   constructor(private router: Router, private satelliteService: SatelliteService) {
   }

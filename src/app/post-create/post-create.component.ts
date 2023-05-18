@@ -12,7 +12,9 @@ export class PostCreateComponent {
   }
 
   submit(postForm: any) {
-    postForm.author = "Rohit Pogaku";
-    console.log(postForm)
+    postForm.author = "Mark Garcia";
+    this.communityService.uploadPost(postForm).subscribe((e) => {
+      console.log(e);
+    });
   }
 }

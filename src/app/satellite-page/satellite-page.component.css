@@ -37,3 +37,8 @@
   height: 70px;
   width: 70px;
 }
+
+.satellite-image {
+  height: 340px;
+  border-radius: 8px;
+}

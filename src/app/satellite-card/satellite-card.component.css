@@ -25,3 +25,6 @@ p {
   transition: all 0.5s ease-in-out;
 }
 
+.satellite-image {
+  height: 200px;
+}

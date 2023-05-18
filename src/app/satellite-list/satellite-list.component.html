@@ -87,7 +87,7 @@
       match.</p>
     <p class="fs-5">Try Another Search or filter!</p>
   </div>
-  <div *ngIf="filteredSatellites.length">
+  <div *ngIf="filteredSatellites.length" class="card-section">
     <div *ngIf="showGrid" class="row gap-4">
       <app-satellite-card *ngFor="let s of filteredSatellites" class="col" [satellite]="s"></app-satellite-card>
     </div>
