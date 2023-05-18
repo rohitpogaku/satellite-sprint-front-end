@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import Satellite from "./shared/satellite";
 import {Observable} from "rxjs";
+import { ContactusComponent } from './contactus/contactus.component';
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +47,11 @@ export class SatelliteService {
     return this.satelliteCacheData;
   }
 
+  sendMessage(message:ContactusComponent){
+    return this.http.post("/api/v1/message",message);
+  }
+
+  getAllMessages(){
+    return this.http.get("/api/v1/message");
+  }
 }

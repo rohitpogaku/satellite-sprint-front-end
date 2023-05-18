@@ -10,12 +10,20 @@ import {SatellitePageComponent} from "./satellite-page/satellite-page.component"
 import {PostComponent} from "./post/post.component";
 import {SatelliteEditComponent} from "./satellite-edit/satellite-edit.component";
 import {SatelliteCreateComponent} from "./satellite-create/satellite-create.component";
+import { ContactusComponent } from './contactus/contactus.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "satellites", component: SatelliteListComponent},
   {path: "community", component: CommunityComponent},
+  {path: "gallery", component: GalleryComponent},
   {path: "about", component: AboutUsComponent},
+  {path: "message", component: ContactusComponent },
+  {path: "login", component: LoginComponent},
+  {path: "register", component: RegisterComponent},
   {path: "satellites/create", component: SatelliteCreateComponent},
   {path: "satellites/:id", component: SatellitePageComponent},
   {path: "satellites/:id/edit", component: SatelliteEditComponent},

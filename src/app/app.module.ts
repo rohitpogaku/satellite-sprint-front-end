@@ -22,6 +22,12 @@ import {SatelliteCreateComponent} from './satellite-create/satellite-create.comp
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
+import { AbovefooterComponent } from './abovefooter/abovefooter.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { MessageComponent } from './message/message.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,13 @@ import {CardModule} from "primeng/card";
     PostComponent,
     SatelliteTableComponent,
     SatelliteEditComponent,
-    SatelliteCreateComponent
+    SatelliteCreateComponent,
+    AbovefooterComponent,
+    ContactusComponent,
+    LoginComponent,
+    RegisterComponent,
+    MessageComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
