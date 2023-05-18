@@ -22,6 +22,8 @@ import {SatelliteCreateComponent} from './satellite-create/satellite-create.comp
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
+import { PostEditComponent } from './post-edit/post-edit.component';
+import { PostCreateComponent } from './post-create/post-create.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {CardModule} from "primeng/card";
     PostComponent,
     SatelliteTableComponent,
     SatelliteEditComponent,
-    SatelliteCreateComponent
+    SatelliteCreateComponent,
+    PostEditComponent,
+    PostCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,36 @@
 <div class="nav-margin-placeholder"></div>
 <h1 class="display-4 text-center">Community</h1>
-<div *ngIf="posts" class="container mt-4">
-  <div class="row gap-4">
-    <div *ngFor="let post of posts" class="col">
-      <div class="card border-dark mb-3" [routerLink]="['/posts', post.id]">
-        <div class="card-header">{{post.author}}</div>
-        <div class="card-body">
-          <h4 class="card-title">{{post.title}}</h4>
-          <p class="card-text">{{post.content}}</p>
+
+<div *ngIf="posts" class="text-white post-grid-container">
+  <div class="container">
+    <div class="d-flex justify-content-end gap-2 mb-4">
+      <button class="btn btn-info add-btn fw-bold" routerLink="/posts/create">Add <i class="bi bi-plus"></i></button>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Sort By
+        </button>
+        <ul class="dropdown-menu">
+          <li class="dropdown-item" [class.sorted-by]="isSortedByLatest" (click)="sortByLatest()">Latest</li>
+          <li class="dropdown-item" [class.sorted-by]="!(isSortedByLatest)" (click)="sortByOldest()">Oldest</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row justify-content-center gx-5 gy-5">
+      <!-- ISRO Card -->
+      <div *ngFor="let post of posts, let i = index" class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+        <div
+          [ngClass]="i%4 === 0 ? 'pink-border' : i%4 === 1 ? 'orange-border' : i%4 === 2 ? 'yellow-border': 'blue-border'"
+          class="post-container"
+          [routerLink]="['/posts', post.id]">
+          <h2 class="title fw-bold">{{post.title}}</h2>
+          <p class="content">{{post.content}}</p>
+          <div class="d-flex align-items-center gap-2">
+            <div><i class="bi bi-person-circle text-info h2"></i></div>
+            <div class="small">
+              <div><small>{{post.author}}</small></div>
+              <div class="text-white-50"><small>{{post.postDate}}</small></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

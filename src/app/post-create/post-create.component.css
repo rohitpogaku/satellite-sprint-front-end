@@ -1,10 +1,14 @@
-.container {
-  /*max-width: 768px;*/
+.nav-margin-placeholder {
+  height: 5vh;
 }
 
-.description {
-  height: auto;
-  min-height: 200px;
+.container {
+  /*max-width: 80%;*/
+}
+
+.content {
+  /* height: auto; */
+  min-height: 50vh;
   resize: none;
 }
 
@@ -12,22 +16,6 @@
   height: 22px;
   margin-bottom: 2px;
 }
-
-.nav-margin-placeholder {
-  height: 5vh;
-}
-
-.form-control:focus ~ .form-label, .form-label {
-  color: #bbd3f5 !important;
-}
-
-.form-label::after {
-  background-color: transparent !important;
-}
-
-/*.form-label::after:focus {*/
-/*  color: white !important;*/
-/*}*/
 
 
 .card {
@@ -48,10 +36,8 @@
 }
 
 input,
-select,
 textarea,
 input:focus,
-select:active,
 textarea:active {
   background-color: var(--sa-dark) !important;
   border-color: var(--sa-dark);
@@ -61,10 +47,6 @@ textarea:active {
 ::placeholder {
   color: ghostwhite;
   opacity: 0.3;
-}
-
-option {
-  color: ghostwhite;
 }
 
 @media screen  and (min-width: 767px) {

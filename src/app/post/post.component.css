@@ -1,3 +1,7 @@
+.nav-margin-placeholder {
+  height: 8vh;
+}
+
 .spinner {
   height: 70vh;
   display: flex;
@@ -10,4 +14,83 @@
   width: 70px;
 }
 
+.container {
+  background-color: var(--sa-light);
+  padding: 5vh 3vw;
+  border-radius: 8px;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+}
 
+.bordered-box {
+  padding: 5px 8px;
+  border: 1px solid #385987;
+  border-radius: 5px;
+}
+
+.edit-btn {
+  background-color: #a5b4fc;
+  border: none;
+  font-weight: bold;
+}
+
+.delete-btn {
+  color: #1c2127;
+  background-color: #fca5a5;
+  border: none;
+  font-weight: bold;
+}
+
+.edit-btn:hover {
+  transform: scale(1.02);
+}
+
+.delete-btn:hover {
+  transform: scale(1.02);
+}
+
+.edit-btn:active {
+  background-color: #4999f2;
+}
+
+.delete-btn:active {
+  color: #1c2127;
+  background-color: #fb5858;
+}
+
+.comment-section {
+  margin-top: 15vh;
+}
+
+.comment-message {
+  opacity: 0.8;
+}
+
+.bi-person-circle {
+  color: #10b981;
+}
+
+.content {
+  /* height: auto; */
+  min-height: 100px;
+  resize: none;
+}
+
+.error-spans {
+  height: 22px;
+  margin-bottom: 2px;
+}
+
+input,
+textarea,
+input:focus,
+textarea:active {
+  background-color: var(--sa-dark) !important;
+  border-color: var(--sa-dark);
+  color: white !important;
+}
+
+::placeholder {
+  color: ghostwhite;
+  opacity: 0.3;
+}

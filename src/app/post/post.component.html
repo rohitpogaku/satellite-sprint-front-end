@@ -1,24 +1,94 @@
+<div class="nav-margin-placeholder"></div>
 <div class="spinner" *ngIf="!post">
   <div class="spinner-border text-secondary" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
 <div *ngIf="post" class="container">
-  <h1 class="text-center">{{post.title}}</h1>
-  <p>{{post.content}}</p>
-  <div class="my-2 px-3 py-2 bg-warning-subtle">
-    <h2>Comments</h2>
+  <div class="d-flex flex-column flex-md-row justify-content-md-between gap-4">
+    <div class="d-flex flex-column">
+      <h2>{{post.title}}</h2>
+      <div class="d-flex gap-2">
+        <div class="bordered-box">{{post.postDate}}</div>
+        <div class="bordered-box"><i class="fa-regular fa-comments"></i> {{post.comments.length}}</div>
+      </div>
+    </div>
+    <div class="d-flex flex-row align-items-center justify-content-md-center flex-md-column gap-2">
+      <div><i class="bi bi-person-circle text-info h1"></i></div>
+      <div class="fw-bold text-nowrap">{{post.author}}</div>
+    </div>
   </div>
-
-  <div class="d-flex gap-4 w-50 mb-2 px-2 py-2 border" *ngFor="let comment of post.comments">
-    <div><i class="bi bi-person h3"></i></div>
-    <div>
-      <h6 class="">{{comment.name}}</h6>
-      <p>{{comment.message}}</p>
-      <div class="d-flex gap-4">
-        <i class="bi bi-heart"></i>
-        <i class="bi bi-reply"></i>
+  <hr>
+  <div class="mt-3">{{post.content}}</div>
+  <div class="d-flex justify-content-end gap-3 mt-5 ">
+    <button class="btn btn-info edit-btn" (click)="editPost(post.id)"><i class="fa-solid fa-pencil"></i> Edit</button>
+    <button class="btn btn-danger delete-btn">Delete</button>
+  </div>
+  <h4 class="fw-bold mt-5">Comments <span
+    class="bordered-box fs-5 ms-3 px-3">{{post.comments.length}}</span></h4>
+  <div class="mt-3" *ngFor="let c of post.comments">
+    <div class="bordered-box py-3 px-4 d-flex gap-4 mb-3">
+      <div><i class="bi bi-person-circle h2"></i></div>
+      <div>
+        <div class="fw-bold fs-5"><small>{{c.name}}</small></div>
+        <p class="comment-message">{{c.message}}</p>
       </div>
     </div>
   </div>
+  <div>
+    <h4 class="fw-bold comment-section">Post a comment</h4>
+    <form #commentForm="ngForm" (ngSubmit)="comment(commentForm.value)">
+      <div class="mb-3 ">
+        <div class="d-flex justify-content-between">
+          <label for="name" class="form-label">Name</label>
+          <span class="text-danger fst-italic"
+                *ngIf="name.errors?.['required'] && name.touched">
+              <small>*required</small>
+            </span>
+          <span class="text-danger fst-italic"
+                [hidden]="!(name.errors?.['pattern'] && !name.errors?.['minlength'] && name.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+          <span class="text-danger fst-italic"
+                [hidden]="!(name.errors?.['minlength'] && name.touched)">
+              <small>Must be at least 3 characters.</small>
+            </span>
+        </div>
+        <input type="text" #name="ngModel" ngModel
+               name="name" class="form-control"
+               id="name" placeholder="ex. John Doe" [required]="true" [minlength]="3" autocomplete="off"
+               pattern="^(?!\s+$).+$"
+               [ngClass]="{'is-invalid': name.touched && name.invalid, 'is-valid': name.valid}">
+      </div>
+      <div class="mb-3">
+        <div class="d-flex justify-content-between">
+          <label for="message" class="form-label">Satellite Name</label>
+          <span class="text-danger fst-italic"
+                [hidden]="!(message.errors?.['required'] && message.touched)">
+              <small>*required</small>
+            </span>
+          <span class="text-danger fst-italic"
+                [hidden]="!(message.errors?.['pattern'] && !message.errors?.['minlength'] && message.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+          <span class="text-danger fst-italic"
+                [hidden]="!(message.errors?.['minlength'] && message.touched)">
+              <small>Must be at least 10 characters.</small>
+            </span>
+        </div>
+        <textarea #message="ngModel" ngModel
+                  name="message"
+                  class="form-control content"
+                  placeholder="Write message..." id="message" [required]="true"
+                  [minlength]="10"
+                  autocomplete="off" pattern="^(?!\s*$)[\s\S]*$"
+                  [ngClass]="{'is-invalid': message.touched && message.invalid, 'is-valid': message.valid}"
+        ></textarea>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary" [disabled]="commentForm.invalid">Post Comment</button>
+      </div>
+    </form>
+  </div>
 </div>
+

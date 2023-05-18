@@ -1,0 +1,98 @@
+<div class="nav-margin-placeholder"></div>
+<div class="container mt-4 mb-5" *ngIf="postToBeEdited">
+  <div class="card">
+    <div class="card-header bg-primary-subtle">
+      <h1 class="text-primary-emphasis fw-normal text-center">Post Edit Form</h1>
+    </div>
+    <div class="card-body">
+      <form #PostForm="ngForm" (ngSubmit)="submit(PostForm.value)">
+        <!--        <div class="row row-cols-md-2">-->
+        <div class="mb-3 ">
+          <div class="d-flex  justify-content-end error-spans">
+            <span class="text-danger fst-italic"
+                  [hidden]="!(title.errors?.['required'] && title.touched)">
+            <small>*required</small>
+          </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(title.errors?.['pattern'] && !title.errors?.['minlength'] && title.touched)">
+            <small>Input must not be black space(s)</small>
+          </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(title.errors?.['minlength'] && title.touched)">
+            <small>Must be at least 3 characters.</small>
+          </span>
+          </div>
+          <div class="form-floating">
+            <input type="text" #title="ngModel" [(ngModel)]="postToBeEdited.title"
+                   name="title" class="form-control"
+                   id="title" placeholder="ex. First Post" [required]="true" [minlength]="3" autocomplete="off"
+                   pattern="^(?!\s+$).+$" [class.is-invalid]="title.invalid">
+            <label for="title" class="form-label">Title</label>
+          </div>
+        </div>
+        <!--          <div class="mb-3">-->
+        <!--            <div class="d-flex justify-content-end error-spans">-->
+        <!--              <span class="text-danger fst-italic"-->
+        <!--                    [hidden]="!(author.errors?.['required'] && author.touched)">-->
+        <!--              <small>*required</small>-->
+        <!--            </span>-->
+        <!--            </div>-->
+        <!--            <div class="form-floating">-->
+        <!--              <input type="text" #author="ngModel" [(ngModel)]="postToBeEdited.author" name="author"-->
+        <!--                     class="form-control"-->
+        <!--                     id="author" placeholder="ex. Jyoshna" [required]="true"-->
+        <!--                     [class.is-invalid]="author.invalid">-->
+        <!--              <label for="author" class="form-label">Author</label>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--        <div class="mb-3">-->
+        <!--          <div class="d-flex justify-content-end error-spans">-->
+        <!--              <span class="text-danger fst-italic"-->
+        <!--                    [hidden]="!(postDate.errors?.['required'] && postDate.touched)">-->
+        <!--              <small>*required</small>-->
+        <!--            </span>-->
+        <!--          </div>-->
+        <!--          <div class="form-floating">-->
+        <!--            <input type="date" #postDate="ngModel" [(ngModel)]="postToBeEdited.postDate" name="postDate"-->
+        <!--                   class="form-control"-->
+        <!--                   id="postDate" placeholder="ex. 2023-05-09" [required]="true"-->
+        <!--                   [class.is-invalid]="postDate.invalid">-->
+        <!--            <label for="postDate" class="form-label">PostDate</label>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <div class="mb-3">
+          <div class="d-flex justify-content-end error-spans">
+              <span class="text-danger fst-italic" [hidden]="!(content.errors?.['required'] && content.touched)">
+                <small>*required</small>
+              </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(content.errors?.['pattern'] && !content.errors?.['minlength'] && content.touched)">
+                <small>Input must not be black space(s)</small>
+              </span>
+            <span class="text-danger fst-italic" [hidden]="!(content.errors?.['minlength'] && content.touched)">
+                <small>Enter at least 50 characters</small>
+              </span>
+          </div>
+          <div class="form-floating">
+              <textarea #content="ngModel" [(ngModel)]="postToBeEdited.content"
+                        name="content"
+                        class="form-control content"
+                        placeholder="Write content..." id="content" [required]="true"
+                        [minlength]="50"
+                        autocomplete="off" pattern="^(?!\s*$)[\s\S]*$" [class.is-invalid]="content.invalid"
+              ></textarea>
+            <label for="content" class="form-label">Content</label></div>
+        </div>
+        <div class="d-flex gap-4">
+          <button type="submit" class="btn btn-primary" [disabled]="PostForm.invalid">Submit</button>
+          <div class="btn-group" role="group" aria-label="clear and cancel buttons">
+            <button type="reset" class="btn btn-outline-warning">Clear</button>
+            <button type="button" class="btn btn-outline-danger" [routerLink]="['/posts', postToBeEdited.id]">Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

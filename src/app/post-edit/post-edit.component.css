@@ -1,10 +1,14 @@
-.container {
-  /*max-width: 768px;*/
+.nav-margin-placeholder {
+  height: 8vh;
 }
 
-.description {
-  height: auto;
-  min-height: 200px;
+.container {
+  /*max-width: 80%;*/
+}
+
+.content {
+  /* height: auto; */
+  min-height: 50vh;
   resize: none;
 }
 
@@ -12,6 +16,7 @@
   height: 22px;
   margin-bottom: 2px;
 }
+
 
 .nav-margin-placeholder {
   height: 5vh;
@@ -48,10 +53,8 @@
 }
 
 input,
-select,
 textarea,
 input:focus,
-select:active,
 textarea:active {
   background-color: var(--sa-dark) !important;
   border-color: var(--sa-dark);
@@ -63,9 +66,6 @@ textarea:active {
   opacity: 0.3;
 }
 
-option {
-  color: ghostwhite;
-}
 
 @media screen  and (min-width: 767px) {
   .card {
