@@ -1,0 +1,12 @@
+.belowcontent {
+    background-color: rgb(24, 24, 91);
+    height: 200px;
+  }
+  
+  .belowcontent p , h3 , a {
+    color: lightgrey;
+  }
+  
+  .belowcontent a:hover {
+    color: blue;
+  }

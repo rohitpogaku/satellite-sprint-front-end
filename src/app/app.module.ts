@@ -22,8 +22,15 @@ import {SatelliteCreateComponent} from './satellite-create/satellite-create.comp
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
-import { PostEditComponent } from './post-edit/post-edit.component';
-import { PostCreateComponent } from './post-create/post-create.component';
+import { AbovefooterComponent } from './abovefooter/abovefooter.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { MessageComponent } from './message/message.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { UserComponent } from './user/user.component';
+import { UseraddComponent } from './useradd/useradd.component';
+import { UsereditComponent } from './useredit/useredit.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +48,15 @@ import { PostCreateComponent } from './post-create/post-create.component';
     SatelliteTableComponent,
     SatelliteEditComponent,
     SatelliteCreateComponent,
-    PostEditComponent,
-    PostCreateComponent
+    AbovefooterComponent,
+    ContactusComponent,
+    LoginComponent,
+    RegisterComponent,
+    MessageComponent,
+    GalleryComponent,
+    UserComponent,
+    UseraddComponent,
+    UsereditComponent
   ],
   imports: [
     BrowserModule,

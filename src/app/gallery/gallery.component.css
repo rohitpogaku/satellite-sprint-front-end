@@ -1,0 +1,18 @@
+.bgimg {
+    background: url("/assets/images/521477.jpg") ;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+  } 
+
+.card {
+    margin-top: 90px;
+    margin-left: 50px;
+}
+
+video {
+    height: 400px;
+    width: 800px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
