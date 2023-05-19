@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+
 }
 
 body {
@@ -12,9 +12,11 @@ body {
     align-items: center;
     min-height: 100vh;
     background:#424551;
+    background-image:  url(/assets/images/521477.jpg);
 }
 
 .box {
+    margin-top: 80px;
     position:relative;
     width: 380px;
     height: 460px;
@@ -97,7 +99,7 @@ body {
 .box form {
     position:absolute;
     inset: 4px;
-    background: #222;
+    background: #070709;
     padding: 30px 30px;
     border-radius: 8px;
     z-index: 2;
@@ -174,6 +176,7 @@ margin-top: 35px;
  outline: none;
  padding: 9px 25px;
  background: #fff;
+ color: black;
  cursor: pointer;
  font-size: 0.9rem;
  border-radius: 5px;
@@ -185,4 +188,10 @@ margin-top: 35px;
 
 .box form input[type="submit"]:active {
     opacity:0.8;
+}
+
+.fa-eye {
+    position: relative;
+    top: 28%;
+    right: 2%;
 }

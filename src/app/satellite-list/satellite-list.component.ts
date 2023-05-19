@@ -186,4 +186,5 @@ export class SatelliteListComponent implements OnInit {
     this.dropdownMenu.nativeElement.classList.remove('show');
   }
 
+
 }

@@ -24,7 +24,8 @@ export class ContactusComponent {
     })
   }
 
-  submitForm(r:any) {
+  submitForm(sendmessageform:any) {
+    alert("Message sent successfully");
     this.saveMessage();
   }
 }

@@ -9,8 +9,15 @@ import { ContactusComponent } from './contactus/contactus.component';
 })
 export class SatelliteService {
   satelliteCacheData: Satellite[] = [];
-
+  personLogin:boolean;
   constructor(private http: HttpClient) {
+    this.personLogin=false;
+  }
+  setPersonLogin(){
+    this.personLogin = true;
+  }
+  getPersonLogin(){
+   return this.personLogin;
   }
 
   getAllSatellites(): Observable<Satellite[]> {
@@ -54,4 +61,13 @@ export class SatelliteService {
   getAllMessages(){
     return this.http.get("/api/v1/message");
   }
+
+  addUserInfo(user: any){
+    return this.http.post("/api/v1/register/save",user);
+  }
+  
+  getUserInfo(email:any,password:any){
+    return this.http.get(`/api/v1/register/authenticate/${email}/${password}`);
+  }
+
 }

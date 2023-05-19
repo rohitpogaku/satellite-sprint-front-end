@@ -28,6 +28,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MessageComponent } from './message/message.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { UserComponent } from './user/user.component';
+import { UseraddComponent } from './useradd/useradd.component';
+import { UsereditComponent } from './useredit/useredit.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { GalleryComponent } from './gallery/gallery.component';
     LoginComponent,
     RegisterComponent,
     MessageComponent,
-    GalleryComponent
+    GalleryComponent,
+    UserComponent,
+    UseraddComponent,
+    UsereditComponent
   ],
   imports: [
     BrowserModule,

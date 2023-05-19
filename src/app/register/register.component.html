@@ -69,3 +69,82 @@ Other:<input type="radio" name="gender" value="other">
 </form>
 </div>
 </body>-->
+
+
+
+<body>
+    <div class="box">
+    <span class="borderLine"></span>
+    
+    <form #registerform="ngForm" (ngSubmit)="submitForm(registerform.value)"  novalidate>
+    <h2>Create an Account</h2>
+    
+    <div class="inputBox">
+    <input type="text" name="firstname" #firstname="ngModel" ngModel required maxlength="10">
+    <div *ngIf="firstname.errors?.['required'] && firstname.touched">Enter your first name</div>
+    <div *ngIf="firstname.errors?.['maxlength'] && firstname.touched">Please enter characters having maxlength 10</div>
+    <span>First Name</span>
+    <i></i>
+    </div>
+    
+    <br>
+    <div class="inputBox">
+    <input type="text" name="lastname" #lastname="ngModel" ngModel maxlength="10">
+    <span>Last Name</span>
+    <i></i>
+    </div>
+    <br>
+    
+    <div class="inputBox">
+    <div class="d-flex" id="gender">
+    <span>Gender</span>
+    <i></i>
+    
+    <select ngModel name="gender" #gender="ngModel" ngModel required>
+        <option value="">--Select</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+        </select>
+    </div>
+    </div>
+    <br>
+    
+    <div class="inputBox">
+    <input type="email"  name="email" #email="ngModel" ngModel required>
+    <div *ngIf="email.errors?.['required'] && email.touched">Enter valid email id</div>
+    <span>Email ID</span>
+    <i></i>
+    </div>
+    <br>
+    
+    <div class="inputBox">
+    <input type="password" name="password" #password="ngModel" ngModel required>
+    <span>Password</span>
+    <i></i>
+    </div>
+    <br>
+    
+    
+    
+    <div class="inputBox">
+    <span>Role</span>
+    <i></i>
+    <select ngModel name="role" #role="ngModel" ngModel required>
+    <option value="">--Select</option>
+    <option value="Student">user</option>
+    <option value="Scientist">Scientist</option>
+    </select>
+    </div>
+    <br>
+    
+    <div class="d-flex">
+    <div class="links">
+    <a [routerLink]="['/login']">Already a user ?</a>
+    </div>
+    
+    <input type="submit" value="Register">
+    </div>
+    </form>
+    </div>
+    </body>
