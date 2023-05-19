@@ -15,6 +15,7 @@ export class PostCreateComponent {
     postForm.author = "Mark Garcia";
     this.communityService.uploadPost(postForm).subscribe((e) => {
       console.log(e);
+      this.router.navigateByUrl("/community");
     });
   }
 }

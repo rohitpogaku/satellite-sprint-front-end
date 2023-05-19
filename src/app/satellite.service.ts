@@ -2,22 +2,25 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import Satellite from "./shared/satellite";
 import {Observable} from "rxjs";
-import { ContactusComponent } from './contactus/contactus.component';
+import {ContactusComponent} from './contactus/contactus.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SatelliteService {
   satelliteCacheData: Satellite[] = [];
-  personLogin:boolean;
+  personLogin: boolean;
+
   constructor(private http: HttpClient) {
-    this.personLogin=false;
+    this.personLogin = false;
   }
-  setPersonLogin(){
+
+  setPersonLogin() {
     this.personLogin = true;
   }
-  getPersonLogin(){
-   return this.personLogin;
+
+  getPersonLogin() {
+    return this.personLogin;
   }
 
   getAllSatellites(): Observable<Satellite[]> {
@@ -26,6 +29,18 @@ export class SatelliteService {
 
   getSatelliteById(id: number) {
     return this.http.get(`/api/v1/satellites/${id}`);
+  }
+
+  uploadSatellite(satellite: any) {
+    return this.http.post("/api/v1/satellites", satellite);
+  }
+
+  updateSatellite(satellite: any) {
+    return this.http.put("/api/v1/satellites", satellite);
+  }
+
+  deleteSatellite(id: number) {
+    return this.http.delete(`/api/v1/satellites/${id}`);
   }
 
   getAllOrbits() {
@@ -58,19 +73,19 @@ export class SatelliteService {
     return this.satelliteCacheData;
   }
 
-  sendMessage(message:ContactusComponent){
-    return this.http.post("/api/v1/message",message);
+  sendMessage(message: ContactusComponent) {
+    return this.http.post("/api/v1/message", message);
   }
 
-  getAllMessages(){
+  getAllMessages() {
     return this.http.get("/api/v1/message");
   }
 
-  addUserInfo(user: any){
-    return this.http.post("/api/v1/register/save",user);
+  addUserInfo(user: any) {
+    return this.http.post("/api/v1/register/save", user);
   }
-  
-  getUserInfo(email:any,password:any){
+
+  getUserInfo(email: any, password: any) {
     return this.http.get(`/api/v1/register/authenticate/${email}/${password}`);
   }
 

@@ -30,7 +30,6 @@ export class SatelliteEditComponent implements OnInit {
   getSatellite(id: number) {
     this.satelliteService.getSatelliteById(id).subscribe((e: any) => {
       this.satelliteToBeEdited = e;
-      console.log(this.satelliteToBeEdited)
     })
   }
 
@@ -60,6 +59,10 @@ export class SatelliteEditComponent implements OnInit {
 
   submit(satelliteForm: any) {
     console.log(satelliteForm);
+    this.satelliteService.updateSatellite(this.satelliteToBeEdited).subscribe((e: any) => {
+      console.log(e);
+      this.router.navigateByUrl("/satellites");
+    });
   }
 
 }

@@ -1,16 +1,16 @@
-<div class="belowcontent">
-    <div class="d-flex">
-     <div class="one" style="margin-left: 10px;">
-     <h3>Links</h3><br>
-     <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">Satellites</a><br>
-     <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">Already have an account</a><br>
-     <a class="nav-link" [routerLink]="['/register']" [routerLinkActive]="['active']">Want to expore data</a>
-     </div>
-     <div class="two" style="margin-left: 700px;">
-       <h3>Contact Us</h3><br>
-       <p>Satellite Sprint, TalentSprint, Hyderabad</p>
-       <a class="nav-link" [routerLink]="['/message']" [routerLinkActive]="['active']">send us a message!</a><br>
-       <p><i class="fas fa-phone"></i> +91-9283514256</p>
-       </div>
+<div class="container py-3 mb-2 belowcontent">
+  <div class="d-flex flex-column justify-content-between flex-md-row gap-4 contact-block">
+    <div class="one">
+      <h3>Links</h3>
+      <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">Satellites</a><br>
+      <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">Already have an account</a><br>
+      <a class="nav-link" [routerLink]="['/register']" [routerLinkActive]="['active']">Want to expore data</a>
     </div>
+    <div class="two">
+      <h3>Contact Us</h3>
+      <p>Satellite Sprint, TalentSprint, Hyderabad</p>
+      <a class="nav-link" [routerLink]="['/message']" [routerLinkActive]="['active']">send us a message!</a><br>
+      <p><i class="fas fa-phone"></i> +91-9283514256</p>
     </div>
+  </div>
+</div>

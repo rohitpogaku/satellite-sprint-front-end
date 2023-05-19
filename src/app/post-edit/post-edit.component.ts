@@ -29,6 +29,7 @@ export class PostEditComponent implements OnInit {
   submit(postForm: any) {
     this.communityService.updatePost(this.postToBeEdited).subscribe((e: any) => {
       console.log(e);
+      this.router.navigateByUrl("/community");
     });
   }
 }

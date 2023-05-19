@@ -173,19 +173,19 @@
               <label for="agency" class="form-label">Agency</label></div>
           </div>
         </div>
-        <div class="mb-3 w-50">
-          <div class="d-flex justify-content-end error-spans">
-            <span class="text-secondary text-opacity-50 fst-italic">
-              <small>(optional)</small>
-            </span>
-          </div>
-          <div class="form-floating">
-            <input type="file" #satelliteImage="ngModel" ngModel name="satelliteImage"
-                   class="form-control"
-                   id="satelliteImage" accept=".jpg, .jpeg, .png">
-            <label for="satelliteImage" class="form-label">Satellite Image</label>
-          </div>
-        </div>
+        <!--        <div class="mb-3 w-50">-->
+        <!--          <div class="d-flex justify-content-end error-spans">-->
+        <!--            <span class="text-secondary text-opacity-50 fst-italic">-->
+        <!--              <small>(optional)</small>-->
+        <!--            </span>-->
+        <!--          </div>-->
+        <!--          <div class="form-floating">-->
+        <!--            <input type="file" #satelliteImage="ngModel" ngModel name="satelliteImage"-->
+        <!--                   class="form-control"-->
+        <!--                   id="satelliteImage" accept=".jpg, .jpeg, .png">-->
+        <!--            <label for="satelliteImage" class="form-label">Satellite Image</label>-->
+        <!--          </div>-->
+        <!--        </div>-->
         <div class="mb-3">
           <div class="d-flex justify-content-end error-spans">
             <span class="text-danger fst-italic" [hidden]="!(description.errors?.['required'] && description.touched)">

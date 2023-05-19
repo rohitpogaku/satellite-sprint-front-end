@@ -147,16 +147,16 @@
             </select>
           </div>
         </div>
-        <div class="mb-3 w-50">
-          <div class="d-flex justify-content-between">
-            <label for="satelliteImage" class="form-label">Satellite Image</label>
-            <span class="text-secondary text-opacity-50 fst-italic">
-              <small>(optional)</small>
-            </span>
-          </div>
-          <input type="file" #satelliteImage="ngModel" ngModel name="satelliteImage" class="form-control"
-                 id="satelliteImage" accept=".jpg, .jpeg, .png">
-        </div>
+        <!--        <div class="mb-3 w-50">-->
+        <!--          <div class="d-flex justify-content-between">-->
+        <!--            <label for="satelliteImage" class="form-label">Satellite Image</label>-->
+        <!--            <span class="text-secondary text-opacity-50 fst-italic">-->
+        <!--              <small>(optional)</small>-->
+        <!--            </span>-->
+        <!--          </div>-->
+        <!--          <input type="file" #satelliteImage="ngModel" ngModel name="satelliteImage" class="form-control"-->
+        <!--                 id="satelliteImage" accept=".jpg, .jpeg, .png">-->
+        <!--        </div>-->
         <div class="mb-3">
           <div class="d-flex justify-content-between">
             <label for="description" class="form-label">Description</label>
@@ -173,7 +173,7 @@
           </div>
           <textarea #description="ngModel" ngModel name="description" class="form-control description"
                     placeholder="Write description..." id="description" [required]="true" [minlength]="15"
-                    autocomplete="off" pattern="^(?!\s+$).+$"
+                    autocomplete="off" pattern="^(?!\s*$)[\s\S]*$"
                     [ngClass]="{'is-invalid': description.touched && description.invalid, 'is-valid': description.valid}"
           ></textarea>
         </div>

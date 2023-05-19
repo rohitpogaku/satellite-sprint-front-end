@@ -1,12 +1,19 @@
 .belowcontent {
-    background-color: rgb(24, 24, 91);
-    height: 200px;
-  }
-  
-  .belowcontent p , h3 , a {
-    color: lightgrey;
-  }
-  
-  .belowcontent a:hover {
-    color: blue;
-  }
+  /*background-color: rgb(24, 24, 91);*/
+
+  /*height: 250px;*/
+}
+
+.belowcontent p, h3, a {
+  color: lightgrey;
+}
+
+.belowcontent a:hover {
+  color: blue;
+}
+
+.contact-block {
+  padding: 2vh 2vw;
+  border-radius: 8px;
+  background-color: var(--sa-light);
+}

@@ -67,5 +67,9 @@ export class SatelliteCreateComponent implements OnInit {
     console.log(satelliteForm);
     console.log(satelliteFormData);
     console.log(JSON.stringify(satelliteFormData));
+    this.satelliteService.uploadSatellite(satelliteFormData).subscribe((e: any) => {
+      console.log(e);
+      this.router.navigateByUrl("/satellites");
+    })
   }
 }

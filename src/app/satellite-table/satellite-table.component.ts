@@ -30,7 +30,7 @@ export class SatelliteTableComponent {
   }
 
   setSatelliteToBeDeleted(satelliteToDelete: any) {
-    this.satelliteNameToBeDeleted.satelliteId = satelliteToDelete.sateliteId;
+    this.satelliteNameToBeDeleted.satelliteId = satelliteToDelete.satelliteId;
     this.satelliteNameToBeDeleted.satelliteName = satelliteToDelete.satelliteName;
   }
 
@@ -39,5 +39,9 @@ export class SatelliteTableComponent {
   }
 
   deleteSatellite(satelliteId: any) {
+    this.satelliteService.deleteSatellite(+satelliteId).subscribe((e) => {
+      console.log(e);
+      this.router.navigateByUrl("/satellites")
+    })
   }
 }

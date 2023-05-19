@@ -33,6 +33,7 @@ export class PostComponent implements OnInit {
   deletePost(id: any) {
     this.communityService.deletePost(id).subscribe((e: any) => {
       console.log(e);
+      this.router.navigateByUrl("/community");
     })
   }
 
