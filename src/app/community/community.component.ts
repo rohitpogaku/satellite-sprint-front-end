@@ -44,7 +44,7 @@ export class CommunityComponent implements OnInit {
       const date1: any = new Date(a.postDate);
       const date2: any = new Date(b.postDate);
 
-      return date1 - date2;
+      return date2 - date1;
     });
 
     this.isSortedByLatest = true;
@@ -56,7 +56,7 @@ export class CommunityComponent implements OnInit {
       const date1: any = new Date(a.postDate);
       const date2: any = new Date(b.postDate);
 
-      return date2 - date1;
+      return date1 - date2;
     });
 
     this.isSortedByLatest = false;
