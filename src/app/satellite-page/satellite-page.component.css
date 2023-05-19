@@ -1,5 +1,29 @@
+.nav-margin-placeholder {
+  height: 9vh;
+}
+
+.container {
+  padding: 5vh 3vw;
+  border-radius: 8px;
+  background-color: var(--sa-light);
+}
+
 .card {
   max-width: 500px;
+  color: ghostwhite;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: 0 0 10px var(--sa-dark);
+}
+
+.card-header {
+  background-color: #93c5fd;
+  color: black;
+}
+
+.list-group-item {
+  color: ghostwhite;
+  background-color: transparent !important;
 }
 
 .spinner {
@@ -12,4 +36,9 @@
 .spinner-border {
   height: 70px;
   width: 70px;
+}
+
+.satellite-image {
+  height: 340px;
+  border-radius: 8px;
 }

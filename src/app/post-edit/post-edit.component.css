@@ -1,20 +1,41 @@
-.container {
-  /*min-width: 200px;*/
-  /*max-width: x;*/
+.nav-margin-placeholder {
+  height: 8vh;
 }
+
+.container {
+  /*max-width: 80%;*/
+}
+
+.content {
+  /* height: auto; */
+  min-height: 50vh;
+  resize: none;
+}
+
+.error-spans {
+  height: 22px;
+  margin-bottom: 2px;
+}
+
 
 .nav-margin-placeholder {
   height: 5vh;
 }
 
-.description {
-  height: auto;
-  min-height: 200px;
-  resize: none;
+.form-control:focus ~ .form-label, .form-label {
+  color: #bbd3f5 !important;
 }
 
+.form-label::after {
+  background-color: transparent !important;
+}
+
+/*.form-label::after:focus {*/
+/*  color: white !important;*/
+/*}*/
+
+
 .card {
-  max-width: 80%;
   margin: 0 auto;
   border-color: var(--sa-light);
   color: whitesmoke;
@@ -32,14 +53,12 @@
 }
 
 input,
-select,
 textarea,
 input:focus,
-select:active,
 textarea:active {
   background-color: var(--sa-dark) !important;
   border-color: var(--sa-dark);
-  color: ghostwhite !important;
+  color: white !important;
 }
 
 ::placeholder {
@@ -47,6 +66,9 @@ textarea:active {
   opacity: 0.3;
 }
 
-option {
-  color: ghostwhite;
+
+@media screen  and (min-width: 767px) {
+  .card {
+    max-width: 80%;
+  }
 }

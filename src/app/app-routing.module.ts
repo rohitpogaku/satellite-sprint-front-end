@@ -34,7 +34,9 @@ const routes: Routes = [
   {path: "satellites/create", component: SatelliteCreateComponent},
   {path: "satellites/:id", component: SatellitePageComponent},
   {path: "satellites/:id/edit", component: SatelliteEditComponent},
+  {path: "posts/create", component: PostCreateComponent},
   {path: "posts/:id", component: PostComponent},
+  {path: "posts/:id/edit", component: PostEditComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CommunityService} from "../community.service";
 
 @Component({
@@ -10,7 +10,7 @@ import {CommunityService} from "../community.service";
 export class PostComponent implements OnInit {
   post: any;
 
-  constructor(private route: ActivatedRoute, private communityService: CommunityService) {
+  constructor(private route: ActivatedRoute, private communityService: CommunityService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -25,4 +25,20 @@ export class PostComponent implements OnInit {
       this.post = e;
     })
   }
+
+  editPost(id: any) {
+    this.router.navigateByUrl(`/posts/${id}/edit`)
+  }
+
+  deletePost(id: any) {
+    this.communityService.deletePost(id).subscribe((e: any) => {
+      console.log(e);
+    })
+  }
+
+  comment(commentForm: any) {
+    commentForm.postId = this.post.id;
+    console.log(commentForm)
+  }
+
 }

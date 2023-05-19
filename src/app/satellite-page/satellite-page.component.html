@@ -1,19 +1,20 @@
-<div class="mt-2">
-  <div class="spinner" *ngIf="!satellite">
-    <div class="spinner-border text-secondary" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
+<div class="nav-margin-placeholder"></div>
+<div class="spinner" *ngIf="!satellite">
+  <div class="spinner-border text-secondary" role="status">
+    <span class="visually-hidden">Loading...</span>
   </div>
-  <div class="container" *ngIf="satellite">
-    <a routerLink="/satellites" class="btn btn-outline-primary"><i class="bi bi-chevron-left"></i> Back</a>
-    <h1 class="text-center">{{satellite.satelliteName}}</h1>
-    <p>{{satellite.description}}</p>
-    <div class="card mt-4">
+</div>
+<div class="container" *ngIf="satellite">
+  <a routerLink="/satellites" class="btn btn-outline-info"><i class="bi bi-chevron-left"></i> Back</a>
+  <h1 class="text-center">{{satellite.satelliteName}}</h1>
+  <p>{{satellite.description}}</p>
+  <div class="d-flex flex-column flex-md-row gap-5 mt-4">
+    <div class="card">
       <h5 class="card-header">Properties</h5>
       <ul class="list-group list-group-flush ">
         <li class="list-group-item"><span class="fw-semibold">Launch Date:</span> {{satellite.launchDate}}</li>
         <li class="list-group-item"><span class="fw-semibold">Launch Mass:</span> {{satellite.launchMass}}</li>
-        <li class="list-group-item"><span class="fw-semibold">Launch Vehicle:</span> {{satellite.launchVehcle}}</li>
+        <li class="list-group-item"><span class="fw-semibold">Launch Vehicle:</span> {{satellite.launchVehicle}}</li>
         <li class="list-group-item"><span class="fw-semibold">Orbit:</span> {{satellite.orbitType.orbit}}</li>
         <li class="list-group-item"><span
           class="fw-semibold">Application:</span> {{satellite.satelliteApplication.application}}</li>
@@ -25,6 +26,9 @@
         </li>
       </ul>
     </div>
+    <div>
+      <img [src]="imageUrl" class="satellite-image">
+    </div>
   </div>
 </div>
-<app-footer *ngIf="satellite"></app-footer>
+

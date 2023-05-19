@@ -1,4 +1,33 @@
 footer {
   height: 50px;
-  color: rgb(38, 38, 87);
+  background-color: var(--sa-light);
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    height: 80px;
+    padding: 10px 0;
+  }
+}
+
+
+.social-link {
+  text-decoration: none;
+  color: #c3e2ff;
+}
+
+.fb:hover {
+  color: #4267B2;
+}
+
+.insta:hover {
+  color: #C13584;
+}
+
+.tw:hover {
+  color: #1DA1F2;
+}
+
+.yt:hover {
+  color: #FF0000;
 }

@@ -1,0 +1,67 @@
+<div class="nav-margin-placeholder"></div>
+<div class="container mt-4 mb-5">
+  <div class="card">
+    <div class="card-header bg-primary-subtle">
+      <h1 class="text-primary-emphasis fw-normal text-center">Post Create Form</h1>
+    </div>
+    <div class="card-body">
+      <form #PostForm="ngForm" (ngSubmit)="submit(PostForm.value)">
+        <div class="mb-3 ">
+          <div class="d-flex justify-content-between">
+            <label for="title" class="form-label">Title</label>
+            <span class="text-danger fst-italic"
+                  *ngIf="title.errors?.['required'] && title.touched">
+              <small>*required</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(title.errors?.['pattern'] && !title.errors?.['minlength'] && title.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(title.errors?.['minlength'] && title.touched)">
+              <small>Must be at least 10 characters.</small>
+            </span>
+          </div>
+          <input type="text" #title="ngModel" ngModel
+                 name="title" class="form-control"
+                 id="title" placeholder="ex. First Post" [required]="true" [minlength]="10" autocomplete="off"
+                 pattern="^(?!\s+$).+$"
+                 [ngClass]="{'is-invalid': title.touched && title.invalid, 'is-valid': title.valid}">
+        </div>
+        <div class="mb-3">
+          <div class="d-flex justify-content-between">
+            <label for="content" class="form-label">Satellite Name</label>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(content.errors?.['required'] && content.touched)">
+              <small>*required</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(content.errors?.['pattern'] && !content.errors?.['minlength'] && content.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(content.errors?.['minlength'] && content.touched)">
+              <small>Must be at least 50 characters.</small>
+            </span>
+          </div>
+          <textarea #content="ngModel" ngModel
+                    name="content"
+                    class="form-control content"
+                    placeholder="Write content..." id="content" [required]="true"
+                    [minlength]="50"
+                    autocomplete="off" pattern="^(?!\s*$)[\s\S]*$"
+                    [ngClass]="{'is-invalid': content.touched && content.invalid, 'is-valid': content.valid}"
+          ></textarea>
+        </div>
+        <div class="d-flex gap-4">
+          <button type="submit" class="btn btn-primary" [disabled]="PostForm.invalid">Submit</button>
+          <div class="btn-group" role="group" aria-label="clear and cancel buttons">
+            <button type="reset" class="btn btn-outline-warning">Clear</button>
+            <button type="button" class="btn btn-outline-danger" routerLink="/community">Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

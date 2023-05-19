@@ -1,6 +1,6 @@
 <div class="nav-margin-placeholder"></div>
 <div class="container">
-  <h1 class="display-5 text-center ">Satellites</h1>
+  <h1 class="display-4 text-center">Satellites</h1>
   <div class="d-flex flex-column flex-md-row gap-2 my-4">
     <input [(ngModel)]="filterBy" class="form-control border-black filterby" type="search"
            placeholder="Search"
@@ -82,12 +82,12 @@
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
-  <div *ngIf="!filteredSatellites.length && !isFilteredListLoading" class="mt-5">
+  <div *ngIf="!filteredSatellites.length && !isFilteredListLoading" class="mt-5 text-center">
     <p class="fs-4">We're sorry <i class="fa-solid fa-face-sad-tear"></i>. We were not able to find a
       match.</p>
     <p class="fs-5">Try Another Search or filter!</p>
   </div>
-  <div *ngIf="filteredSatellites.length">
+  <div *ngIf="filteredSatellites.length" class="card-section">
     <div *ngIf="showGrid" class="row gap-4">
       <app-satellite-card *ngFor="let s of filteredSatellites" class="col" [satellite]="s"></app-satellite-card>
     </div>

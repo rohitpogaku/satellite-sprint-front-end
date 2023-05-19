@@ -17,5 +17,17 @@ export class CommunityService {
     return this.http.get(`/api/v1/posts/${id}`);
   }
 
+  uploadPost(data: any) {
+    return this.http.post("/api/v1/posts", data);
+  }
+
+  updatePost(data: any) {
+    return this.http.put("/api/v1/posts", data);
+  }
+
+  deletePost(id: any) {
+    return this.http.delete(`/api/v1/posts/${id}`);
+  }
+
 
 }
