@@ -67,8 +67,9 @@ option {
   color: ghostwhite;
 }
 
-@media screen  and (min-width: 767px) {
-  .card {
-    max-width: 80%;
-  }
+.satellite-image {
+  height: 52px;
+  width: 52px;
 }
+
+

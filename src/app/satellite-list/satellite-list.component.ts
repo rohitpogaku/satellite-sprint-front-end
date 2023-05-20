@@ -187,4 +187,8 @@ export class SatelliteListComponent implements OnInit {
   }
 
 
+  onRowDeleted() {
+    this.ngOnInit();
+  }
+
 }

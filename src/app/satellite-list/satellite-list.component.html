@@ -98,7 +98,7 @@
                           [satellite]="s"></app-satellite-card>
     </div>
     <div *ngIf="showList">
-      <app-satellite-table [satellites]="filteredSatellites"></app-satellite-table>
+      <app-satellite-table (rowDeleted)="onRowDeleted()" [satellites]="filteredSatellites"></app-satellite-table>
     </div>
   </div>
 </div>

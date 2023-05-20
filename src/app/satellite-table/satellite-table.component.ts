@@ -1,7 +1,8 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import Satellite from "../shared/satellite";
 import {SatelliteService} from "../satellite.service";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-satellite-table',
@@ -10,14 +11,14 @@ import {SatelliteService} from "../satellite.service";
 })
 export class SatelliteTableComponent {
   @Input() satellites: Satellite[] = [];
+  @Output() rowDeleted: EventEmitter<void> = new EventEmitter<void>();
 
   satelliteNameToBeDeleted = {
     satelliteId: undefined,
     satelliteName: ""
   };
 
-
-  constructor(private router: Router, private satelliteService: SatelliteService) {
+  constructor(private router: Router, private satelliteService: SatelliteService, private messageService: MessageService) {
   }
 
   handleRowClick(event: any) {
@@ -38,10 +39,17 @@ export class SatelliteTableComponent {
     this.router.navigateByUrl(`satellites/${satelliteId}/edit`);
   }
 
-  deleteSatellite(satelliteId: any) {
-    this.satelliteService.deleteSatellite(+satelliteId).subscribe((e) => {
-      console.log(e);
-      this.router.navigateByUrl("/satellites")
+  deleteSatellite(satellite: any) {
+    this.satelliteService.deleteSatellite(+satellite.satelliteId).subscribe((e) => {
+      this.messageService.add({
+        severity: 'success',
+        summary: `${satellite.satelliteName} deleted successfully!`
+      });
+      this.rowDeleted.emit();
     })
+
+
   }
+
+
 }

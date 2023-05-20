@@ -14,7 +14,6 @@
 }
 
 .card {
-  max-width: 80%;
   margin: 0 auto;
   border-color: var(--sa-light);
   color: whitesmoke;
@@ -49,4 +48,10 @@ textarea:active {
 
 option {
   color: ghostwhite;
+}
+
+@media screen  and (min-width: 767px) {
+  .card {
+    max-width: 80%;
+  }
 }

@@ -23,7 +23,7 @@
             </span>
             </div>
             <div class="form-floating">
-              <input type="text" #satelliteName="ngModel" [(ngModel)]="satelliteToBeEdited.satelliteName"
+              <input type="text" #satelliteName="ngModel" [ngModel]="satelliteToBeEdited.satelliteName"
                      name="satelliteName" class="form-control"
                      id="satelliteName" placeholder="ex. Aryabhata" [required]="true" [minlength]="3" autocomplete="off"
                      pattern="^(?!\s+$).+$" [class.is-invalid]="satelliteName.invalid">
@@ -38,7 +38,7 @@
             </span>
             </div>
             <div class="form-floating">
-              <input type="date" #launchDate="ngModel" [(ngModel)]="satelliteToBeEdited.launchDate" name="launchDate"
+              <input type="date" #launchDate="ngModel" [ngModel]="satelliteToBeEdited.launchDate" name="launchDate"
                      class="form-control"
                      id="launchDate" placeholder="ex. 1975-04-19" [required]="true"
                      [class.is-invalid]="launchDate.invalid">
@@ -60,7 +60,7 @@
             </div>
             <div class="form-floating">
               <input type="number" #launchMass="ngModel"
-                     [(ngModel)]="satelliteToBeEdited.launchMass" name="launchMass"
+                     [ngModel]="satelliteToBeEdited.launchMass" name="launchMass"
                      class="form-control"
                      id="launchMass" placeholder="ex. 2000" [required]="true" [min]="1"
                      autocomplete="off" [class.is-invalid]="launchMass.invalid">
@@ -85,7 +85,7 @@
             </div>
             <div class="form-floating">
               <input type="text" #launchVehicle="ngModel"
-                     [(ngModel)]="satelliteToBeEdited.launchVehicle"
+                     [ngModel]="satelliteToBeEdited.launchVehicle"
                      name="launchVehicle" class="form-control"
                      id="launchVehicle" placeholder="ex. PSLV-IV" [required]="true"
                      [minlength]="2" autocomplete="off"
@@ -103,7 +103,7 @@
             </span>
             </div>
             <div class="form-floating">
-              <select #orbitTypeId="ngModel" [(ngModel)]="satelliteToBeEdited.orbitTypeId"
+              <select #orbitTypeId="ngModel" [ngModel]="satelliteToBeEdited.orbitTypeId"
                       name="orbitTypeId"
                       class="form-select" id="orbitType"
                       aria-label="Select orbit type"
@@ -122,7 +122,7 @@
             </span>
             </div>
             <div class="form-floating">
-              <select #applicationId="ngModel" [(ngModel)]="satelliteToBeEdited.applicationId"
+              <select #applicationId="ngModel" [ngModel]="satelliteToBeEdited.applicationId"
                       name="applicationId"
                       class="form-select" id="application"
                       aria-label="Select application"
@@ -144,7 +144,7 @@
             </div>
             <div class="form-floating">
               <select #manufacturerId="ngModel"
-                      [(ngModel)]="satelliteToBeEdited.manufacturerId" name="manufacturerId"
+                      [ngModel]="satelliteToBeEdited.manufacturerId" name="manufacturerId"
                       class="form-select"
                       id="manufacturer" aria-label="Select manufacturer"
                       [required]="true" [class.is-invalid]="manufacturerId.invalid">
@@ -161,7 +161,7 @@
             </span>
             </div>
             <div class="form-floating">
-              <select #agencyId="ngModel" [(ngModel)]="satelliteToBeEdited.agencyId"
+              <select #agencyId="ngModel" [ngModel]="satelliteToBeEdited.agencyId"
                       name="agencyId"
                       class="form-select"
                       id="agency"
@@ -173,17 +173,28 @@
               <label for="agency" class="form-label">Agency</label></div>
           </div>
         </div>
-        <div class="mb-3 w-50">
-          <div class="d-flex justify-content-end error-spans">
+        <div class="row row-cols-md-2">
+          <div class="mb-3">
+            <div class="d-flex justify-content-end error-spans">
                     <span class="text-secondary text-opacity-50 fst-italic">
                       <small>(optional)</small>
                     </span>
+            </div>
+            <div class="form-floating">
+              <input type="file"
+                     class="form-control" (change)="onFileSelected($event)"
+                     id="satelliteImage" accept="image/*">
+              <label for="satelliteImage" class="form-label">Satellite Image</label>
+            </div>
           </div>
-          <div class="form-floating">
-            <input type="file" #satelliteImage="ngModel" ngModel name="satelliteImage"
-                   class="form-control"
-                   id="satelliteImage" accept="image/*">
-            <label for="satelliteImage" class="form-label">Satellite Image</label>
+          <div class="d-flex gap-4">
+            <div class="d-flex align-items-center" *ngIf="imageUrl || selectedImage">Selected Image</div>
+            <div class="d-flex align-items-center" *ngIf="!imageUrl && !selectedImage">No Image</div>
+            <div class="d-flex align-items-center" *ngIf="imageUrl || selectedImage">
+              <img [src]="imageUrl" class="satellite-image"
+                   [alt]="satelliteToBeEdited.satelliteName" *ngIf="!selectedImage">
+              <img [src]="imagePreview" class="satellite-image" alt="Image Preview" *ngIf="selectedImage"/>
+            </div>
           </div>
         </div>
         <div class="mb-3">
@@ -200,7 +211,7 @@
             </span>
           </div>
           <div class="form-floating">
-            <textarea #description="ngModel" [(ngModel)]="satelliteToBeEdited.description"
+            <textarea #description="ngModel" [ngModel]="satelliteToBeEdited.description"
                       name="description"
                       class="form-control description"
                       placeholder="Write description..." id="description" [required]="true"
@@ -220,4 +231,6 @@
     </div>
   </div>
 </div>
+<p-toast></p-toast>
+
 

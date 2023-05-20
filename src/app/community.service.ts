@@ -29,5 +29,9 @@ export class CommunityService {
     return this.http.delete(`/api/v1/posts/${id}`);
   }
 
+  postComment(comment: any) {
+    return this.http.post("/api/v1/comments", comment);
+  }
+
 
 }

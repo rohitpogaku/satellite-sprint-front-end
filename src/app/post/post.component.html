@@ -37,7 +37,7 @@
   </div>
   <div>
     <h4 class="fw-bold comment-section">Post a comment</h4>
-    <form #commentForm="ngForm" (ngSubmit)="comment(commentForm.value)">
+    <form #commentForm="ngForm" (ngSubmit)="comment(commentForm)" id="commentForm">
       <div class="mb-3 ">
         <div class="d-flex justify-content-between">
           <label for="name" class="form-label">Name</label>
@@ -91,4 +91,4 @@
     </form>
   </div>
 </div>
-
+<p-toast></p-toast>

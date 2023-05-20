@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CommunityService} from '../community.service';
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-post-edit',
@@ -10,7 +11,10 @@ import {CommunityService} from '../community.service';
 export class PostEditComponent implements OnInit {
   postToBeEdited: any;
 
-  constructor(private router: Router, private route: ActivatedRoute, private communityService: CommunityService) {
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private communityService: CommunityService,
+              private messageService: MessageService) {
   }
 
   ngOnInit(): void {
@@ -29,8 +33,11 @@ export class PostEditComponent implements OnInit {
   submit(postForm: any) {
     this.postToBeEdited.author = "Rohit Pogaku";
     this.communityService.updatePost(this.postToBeEdited).subscribe((e: any) => {
-      console.log(e);
-      this.router.navigateByUrl("/community");
+      this.messageService.add({severity: 'success', summary: 'Post edited successfully!'})
+
+      setTimeout(() => {
+        this.router.navigateByUrl("/community");
+      }, 1500);
     });
   }
 }

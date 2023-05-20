@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CommunityService} from "../community.service";
+import {NgForm} from "@angular/forms";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-post',
@@ -10,7 +12,10 @@ import {CommunityService} from "../community.service";
 export class PostComponent implements OnInit {
   post: any;
 
-  constructor(private route: ActivatedRoute, private communityService: CommunityService, private router: Router) {
+  constructor(private route: ActivatedRoute,
+              private communityService: CommunityService,
+              private router: Router,
+              private messageService: MessageService) {
   }
 
   ngOnInit(): void {
@@ -33,13 +38,22 @@ export class PostComponent implements OnInit {
   deletePost(id: any) {
     this.communityService.deletePost(id).subscribe((e: any) => {
       console.log(e);
-      this.router.navigateByUrl("/community");
+      this.messageService.add({severity: 'info', summary: 'Post deleted successfully'});
+      setTimeout(() => {
+        this.router.navigateByUrl("/community");
+      }, 1200);
     })
   }
 
-  comment(commentForm: any) {
-    commentForm.postId = this.post.id;
-    console.log(commentForm)
+  comment(commentForm: NgForm) {
+    commentForm.value.postId = this.post.id;
+    this.communityService.postComment(commentForm.value).subscribe((e: any) => {
+      this.ngOnInit();
+      commentForm.resetForm();
+      this.messageService.add({severity: 'success', summary: 'Successfully commented!'})
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    })
+
   }
 
 }
