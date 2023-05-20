@@ -22,8 +22,6 @@ import {SatelliteEditComponent} from './satellite-edit/satellite-edit.component'
 import {NgOptimizedImage} from "@angular/common";
 import {SatelliteCreateComponent} from './satellite-create/satellite-create.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {ButtonModule} from "primeng/button";
-import {CardModule} from "primeng/card";
 import {AbovefooterComponent} from './abovefooter/abovefooter.component';
 import {ContactusComponent} from './contactus/contactus.component';
 import {LoginComponent} from './login/login.component';
@@ -33,6 +31,9 @@ import {GalleryComponent} from './gallery/gallery.component';
 import {UserComponent} from './user/user.component';
 import {UseraddComponent} from './useradd/useradd.component';
 import {UsereditComponent} from './useredit/useredit.component';
+import {CalendarModule} from "primeng/calendar";
+import {MessageService} from "primeng/api";
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -70,10 +71,10 @@ import {UsereditComponent} from './useredit/useredit.component';
     NgOptimizedImage,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ButtonModule,
-    CardModule
+    CalendarModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

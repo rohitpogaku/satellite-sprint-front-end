@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../user/user';
-import { UserserviceService } from '../userservice.service';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {User} from '../user/user';
+import {UserserviceService} from '../userservice.service';
+import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-useredit',
@@ -15,7 +15,8 @@ export class UsereditComponent implements OnInit {
   data: any
 
 
-  constructor(private service: UserserviceService, private route: ActivatedRoute, private router : Router) { }
+  constructor(private service: UserserviceService, private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
@@ -28,27 +29,29 @@ export class UsereditComponent implements OnInit {
         firstname: this.user.firstname,
         lastname: this.user.lastname,
         email: this.user.email,
-        gender:this.user.gender,
-        role:this.user.role
-      });
-    })
+        gender: this.user.gender,
+        role: this.user.role
+      });
+    })
   }
+
   form = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required]),
     role: new FormControl('', [Validators.required])
-   
+
   })
-  submit(){
+
+  submit() {
     this.data = this.form.value
     console.log(this.data)
-    this.data.id=this.user?.id
+    this.data.id = this.user?.id
     this.service.updateUser(this.data).subscribe(data => {
       console.log(data)
     })
 
     this.router.navigate(['user']);
-   }
+  }
 }

@@ -35,6 +35,10 @@ export class SatelliteService {
     return this.http.post("/api/v1/satellites", satellite);
   }
 
+  uploadImage(image: FormData) {
+    return this.http.post("/api/v1/images", image);
+  }
+
   updateSatellite(satellite: any) {
     return this.http.put("/api/v1/satellites", satellite);
   }

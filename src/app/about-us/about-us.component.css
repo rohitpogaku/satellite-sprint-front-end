@@ -1,18 +1,18 @@
-/* .about-us-body {
+.about-us-body {
   background: rgb(22, 32, 65);
   background: linear-gradient(120deg, rgba(22, 32, 65, 1) 0%, rgba(7, 9, 24, 1) 100%);
-} */
+}
 
-.bgimg {
-  background: url("/assets/images/521477.jpg") ;
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-} 
+/*.bgimg {*/
+/*  background: url("/assets/images/521477.jpg");*/
+/*  height: 100%;*/
+/*  width: 100%;*/
+/*  background-size: cover;*/
+/*}*/
 
 .about-us-hero-image-container {
   height: 70vh;
-  background-image: url("/assets/images/satellite-intelligence.jpg");
+  background-image: url("/assets/images/satellite-dish.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -27,7 +27,7 @@
   border: solid lightblue;
   border-radius: 5px;
   padding: 10px 20px;
-  background-color:#051a34;
+  background-color: #051a34;
   color: ghostwhite;
 }
 

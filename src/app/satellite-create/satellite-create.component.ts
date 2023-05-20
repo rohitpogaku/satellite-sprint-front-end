@@ -12,6 +12,9 @@ import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 })
 export class SatelliteCreateComponent implements OnInit {
 
+  selectedImage: File | undefined;
+  defaultImage: File | undefined;
+
   orbits: any;
   applications: any;
   manufacturers: any;
@@ -64,12 +67,41 @@ export class SatelliteCreateComponent implements OnInit {
       manufacturerId: +satelliteForm.manufacturerId,
       agencyId: +satelliteForm.agencyId
     }
-    console.log(satelliteForm);
-    console.log(satelliteFormData);
-    console.log(JSON.stringify(satelliteFormData));
     this.satelliteService.uploadSatellite(satelliteFormData).subscribe((e: any) => {
       console.log(e);
       this.router.navigateByUrl("/satellites");
-    })
+    });
+
+    const formData = new FormData();
+    if (this.selectedImage) {
+
+      formData.append('file', this.selectedImage);
+      formData.append('name', satelliteFormData.satelliteName);
+      formData.append('ID', "0");
+
+      this.satelliteService.uploadImage(formData).subscribe((e: any) => {
+        console.log(e);
+      });
+
+    } else {
+      fetch("/assets/images/space-2.jpg")
+        .then(res => res.blob())
+        .then(blob => {
+          this.defaultImage = new File([blob], "default-image.png");
+
+          formData.append('file', this.defaultImage);
+          formData.append('name', satelliteFormData.satelliteName);
+          formData.append('ID', "0");
+          
+          this.satelliteService.uploadImage(formData).subscribe((e: any) => {
+            console.log(e);
+          });
+        });
+    }
+
+  }
+
+  onFileSelected(event: any): void {
+    this.selectedImage = event.target.files[0];
   }
 }

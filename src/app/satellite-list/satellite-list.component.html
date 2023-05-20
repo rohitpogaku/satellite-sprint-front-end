@@ -10,7 +10,7 @@
         <button class="btn btn-outline-info w-100" type="button" data-bs-toggle="dropdown" data-bs-offset="0,10"
                 data-bs-auto-close="outside"
                 aria-expanded="true">
-          Filter by <i class="bi bi-funnel"></i>
+          Filter <i class="bi bi-funnel"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-filter" #dropdownMenu>
           <form>
@@ -70,6 +70,11 @@
               *ngFor="let a of applications">{{a.application}}</li>
         </ul>
       </div>
+      <div>
+        <button *ngIf="filteredSatellites.length < satellites.length && filterBy === ''" (click)="filterClearAll()"
+                class="btn btn-outline-warning">Clear
+        </button>
+      </div>
     </div>
     <div class="d-flex gap-3 align-items-center justify-content-end ms-auto">
       <i role="button" (click)="toggleShowList()" class="bi bi-table" [class.active]="showList"
@@ -89,7 +94,7 @@
   </div>
   <div *ngIf="filteredSatellites.length" class="card-section">
     <div *ngIf="showGrid" class="row gy-4 gx-4">
-      <app-satellite-card class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let s of filteredSatellites"
+      <app-satellite-card class="col-12 col-md-6 col-lg-4 col-xl-3 col-" *ngFor="let s of filteredSatellites"
                           [satellite]="s"></app-satellite-card>
     </div>
     <div *ngIf="showList">
