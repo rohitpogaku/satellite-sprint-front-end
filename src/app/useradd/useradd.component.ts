@@ -9,7 +9,7 @@ import { UserserviceService } from '../userservice.service';
   styleUrls: ['./useradd.component.css']
 })
 export class UseraddComponent implements OnInit {
-
+  allcountries:any;
 constructor(private Service:UserserviceService,private router:Router){
 }
 data: any;
@@ -20,9 +20,11 @@ data: any;
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required]),
+    country: new FormControl('', [Validators.required]),
     role: new FormControl('', [Validators.required])
   })
   ngOnInit(): void {
+    this.getCountries();
   }
   submit(){
     this.data = this.form.value
@@ -33,5 +35,13 @@ data: any;
     })
     this.router.navigate(['user']);
   }
+
+  getCountries(){
+    return this.Service.getCountries().subscribe((c:any)=>
+    {
+   console.log(c);
+   this.allcountries=c;
+    })
 }
 
+}

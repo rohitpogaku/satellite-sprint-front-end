@@ -36,22 +36,21 @@
       <form #loginform="ngForm" (ngSubmit)="submit(loginform.value)">
         <h2>Login</h2>
         <div class="inputBox">
-          <input type="email" name="email" #email="ngModel" ngModel required>
-          <div *ngIf="email.errors?.['required'] && email.touched">Enter a valid email ID</div>
           <span>Email ID</span>
           <i></i>
+          <input type="email" name="email" #email="ngModel" ngModel required>
+          <div *ngIf="email.errors?.['required'] && email.touched" id="error">Enter a valid email ID</div>
         </div>
         <br><br>
         <div class="inputBox">
-          <input type="password" name="password" #password="ngModel" ngModel required minlength="4" maxlength="8" id="myInput">
-          <!-- <input type="checkbox" onclick="myFunction()">Show Password -->
-          <div *ngIf="password.errors?.['required'] && password.touched">Enter your password</div>
-          <div *ngIf="password.errors?.['minlength'] && password.touched">Please enter a password with a minimum length of 4 characters</div>
-          <div *ngIf="password.errors?.['maxlength'] && password.touched">Please enter a password with a maximum length of 8 characters</div>
           <span>Password</span>
           <i></i> 
+          <input type="password" name="password" #password="ngModel" ngModel required minlength="4" maxlength="8" id="myInput">
+          <!-- <input type="checkbox" onclick="myFunction()">Show Password -->
+          <div *ngIf="password.errors?.['required'] && password.touched" id="error">Enter your password</div>
+          <div *ngIf="password.errors?.['minlength'] && password.touched" id="error">Please enter a password with a minimum length of 4 characters</div>
+          <div *ngIf="password.errors?.['maxlength'] && password.touched" id="error">Please enter a password with a maximum length of 8 characters</div>
         </div>
-        <br>
         <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
         <br>
         <div class="links">

@@ -3,13 +3,14 @@
     <div class="d-flex">
     <div class="box">
     <span class="borderLine"></span>
-    <form #sendmessageform="ngForm" (ngSubmit)="submitForm(sendmessageform.value)"  novalidate>
+    <!-- <form #messageform="ngForm" (ngSubmit)="submitForm(messageform.value)" novalidate> -->
+    <form (ngSubmit)="submitForm()" novalidate>
     <h2>Have Questions? ...Send Us</h2>
     <h3>Sender's Information</h3>
     <div class="inputBox">
     <span>Name</span>
     <i></i>
-    <input type="text" name="m_name" #m_name="ngModel" ngModel required maxlength="10">
+    <input type="text" name="m_name" #m_name="ngModel" ngModel required maxlength="10" >
     <div *ngIf="m_name.errors?.['required'] && m_name.touched">Enter your name</div>
     <div *ngIf="m_name.errors?.['maxlength'] && m_name.touched">Please enter characters having maxlength 10</div>
     </div>
@@ -17,7 +18,7 @@
     <div class="inputBox">
     <span>Contact No.</span>
     <i></i>
-    <input type="text" name="m_contact" #m_contact="ngModel" ngModel required maxlength="10">
+    <input type="text" name="m_contact" #m_contact="ngModel" ngModel required maxlength="10" id="contact" >
     <div *ngIf="m_contact.errors?.['required'] && m_contact.touched">Enter your contact information</div>
     <div *ngIf="m_contact.errors?.['maxlength'] && m_contact.touched">Please enter characters having maxlength 10</div>
     </div>
@@ -25,34 +26,25 @@
     <div class="inputBox">
     <span>Email ID</span>
     <i></i>
-    <input type="email"  name="m_email" #m_email="ngModel" ngModel required>
+    <input type="email"  name="m_email" #m_email="ngModel" ngModel required >
     <div *ngIf="m_email.errors?.['required'] && m_email.touched">Enter valid email id</div>
     </div>
     <br>
     <div class="inputBox">
     <span>Message</span>
     <i></i>
-    <input type="text" name="m_text" #m_text="ngModel" ngModel required>
+    <input type="text" name="m_text" #m_text="ngModel" ngModel required >
     </div>
     <br>
-    <!--<div class="inputBox">
-    <span>Please input the text below</span>
-    <i></i>
-    <select ngModel name="captcha" #captcha="ngModel" ngModel required>
-    </select>
-    </div>
-    <br>-->
     <div class="d-flex">
     <div class="links">
     <a [routerLink]="['/home']"></a>
     </div>
     <input type="submit" value="send" [routerLink]="['/home']">
     </div>
-    <!--<div class="g-recaptcha" data-sitekey="6LcaDOEcAAAAAMMMjj-8-BQorfN6X5DJIScfRuFz"></div>
-    <button class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit'data-action='submit'>Submit</button>-->
     </form>
     </div>
-    <img src="/assets/images/satellite1.webp" style="height:300px;width:700px;margin-left:100px;margin-top: 100px;">
+    <img src="/assets/images/contact-satellite.webp" style="height:450px;width:600px;margin-left:100px;margin-top: 100px;">
     </div>
     </div>
     </body>

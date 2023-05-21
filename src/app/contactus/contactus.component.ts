@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SatelliteService } from '../satellite.service';
 
@@ -8,24 +8,22 @@ import { SatelliteService } from '../satellite.service';
   styleUrls: ['./contactus.component.css']
 })
 export class ContactusComponent {
-  message:any;
+  data:any;
 
   constructor(private route:Router, private satelliteService: SatelliteService) {
-   this.message=[];
    }
- 
+
   ngOnInit():void {
   }
 
-  saveMessage(){
-    return this.satelliteService.sendMessage(this.message).subscribe((m:any)=>
-    {
-   console.log(m);
-    })
-  }
-
-  submitForm(sendmessageform:any) {
+  submitForm(){
+    this.data;
+    console.log(this.data)
     alert("Message sent successfully");
-    this.saveMessage();
+
+    this.satelliteService.addMessage(this.data).subscribe(data => {
+      console.log(data)
+    })
+    this.route.navigate(['home']);
   }
 }

@@ -75,6 +75,18 @@
             </div>
           </div>
         </div>
+        <br>
+
+        <!--Country-->
+        <div class="row">
+        <div class="col-md-12 form-group mb-4">
+          <label for="country">Country</label><br>
+          <select id="selectcountry" class="form-control" ngModel name="country" #country="ngModel" ngModel required>
+          <option *ngFor="let country of allcountries" name="alpha2Code">{{country.name}}</option></select>
+          </div>
+          </div>
+              
+    
        
         <!--Role-->
         <div class="row">
