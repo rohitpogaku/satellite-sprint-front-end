@@ -11,19 +11,24 @@ export class ContactusComponent {
   data:any;
 
   constructor(private route:Router, private satelliteService: SatelliteService) {
+    this.data=[];
    }
 
   ngOnInit():void {
   }
 
-  submitForm(){
-    this.data;
-    console.log(this.data)
-    alert("Message sent successfully");
-
-    this.satelliteService.addMessage(this.data).subscribe(data => {
-      console.log(data)
+  saveMessage(){
+    return this.satelliteService.addMessage(this.data).subscribe((m:any)=>
+    {
+   console.log(m);
     })
+  }
+  
+   submit(r:any) {
+    console.log(this.data);
+    this.saveMessage();
+    alert("Message sent successfully");
     this.route.navigate(['home']);
   }
+ 
 }

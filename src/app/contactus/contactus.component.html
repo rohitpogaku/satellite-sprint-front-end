@@ -3,14 +3,13 @@
     <div class="d-flex">
     <div class="box">
     <span class="borderLine"></span>
-    <!-- <form #messageform="ngForm" (ngSubmit)="submitForm(messageform.value)" novalidate> -->
-    <form (ngSubmit)="submitForm()" novalidate>
+    <form #messageform="ngForm" (ngSubmit)="submit(messageform.value)" novalidate> 
     <h2>Have Questions? ...Send Us</h2>
     <h3>Sender's Information</h3>
     <div class="inputBox">
     <span>Name</span>
     <i></i>
-    <input type="text" name="m_name" #m_name="ngModel" ngModel required maxlength="10" >
+    <input type="text" name="m_name" #m_name="ngModel" ngModel required maxlength="10" class="form-control">
     <div *ngIf="m_name.errors?.['required'] && m_name.touched">Enter your name</div>
     <div *ngIf="m_name.errors?.['maxlength'] && m_name.touched">Please enter characters having maxlength 10</div>
     </div>
@@ -18,7 +17,7 @@
     <div class="inputBox">
     <span>Contact No.</span>
     <i></i>
-    <input type="text" name="m_contact" #m_contact="ngModel" ngModel required maxlength="10" id="contact" >
+    <input type="text" name="m_contact" #m_contact="ngModel" ngModel required maxlength="10" id="contact"  class="form-control">
     <div *ngIf="m_contact.errors?.['required'] && m_contact.touched">Enter your contact information</div>
     <div *ngIf="m_contact.errors?.['maxlength'] && m_contact.touched">Please enter characters having maxlength 10</div>
     </div>
@@ -26,21 +25,21 @@
     <div class="inputBox">
     <span>Email ID</span>
     <i></i>
-    <input type="email"  name="m_email" #m_email="ngModel" ngModel required >
+    <input type="email"  name="m_email" #m_email="ngModel" ngModel required  class="form-control">
     <div *ngIf="m_email.errors?.['required'] && m_email.touched">Enter valid email id</div>
     </div>
     <br>
     <div class="inputBox">
     <span>Message</span>
     <i></i>
-    <input type="text" name="m_text" #m_text="ngModel" ngModel required >
+    <input type="text" name="m_text" #m_text="ngModel" ngModel required  class="form-control">
     </div>
     <br>
     <div class="d-flex">
     <div class="links">
     <a [routerLink]="['/home']"></a>
     </div>
-    <input type="submit" value="send" [routerLink]="['/home']">
+    <input type="submit" value="send">
     </div>
     </form>
     </div>
