@@ -1,0 +1,10 @@
+.nav-margin-placeholder {
+  height: 12vh;
+}
+
+.profile-card {
+  color: white;
+  margin: 5vh auto;
+  width: 400px;
+  background-color: var(--sa-light);
+}

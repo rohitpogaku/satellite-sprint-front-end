@@ -191,4 +191,5 @@ export class SatelliteListComponent implements OnInit {
     this.ngOnInit();
   }
 
+
 }

@@ -16,9 +16,12 @@
         <a class="nav-link" [routerLink]="['/gallery']" [routerLinkActive]="['active']">Gallery</a>
         <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']">About</a>
       </div>
-      <div class="d-flex flex-column flex-lg-row gap-2">
+      <div class="d-flex flex-column flex-lg-row gap-2" *ngIf="!userService.isLoggedIn">
         <a class="btn btn-sm btn-primary mx-auto" id="login-btn" [routerLink]="['/login']">Login</a>
         <a class="btn btn-sm btn-secondary mx-auto" id="register-btn" [routerLink]="['/register']">Register</a>
+      </div>
+      <div *ngIf="userService.isLoggedIn" class="d-flex justify-content-center">
+        <app-user-avatar></app-user-avatar>
       </div>
     </div>
   </div>
