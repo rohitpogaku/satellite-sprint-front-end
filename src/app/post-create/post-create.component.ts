@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CommunityService} from "../community.service";
 import {MessageService} from "primeng/api";
+import {UserserviceService} from "../userservice.service";
 
 @Component({
   selector: 'app-post-create',
@@ -14,6 +15,7 @@ export class PostCreateComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private communityService: CommunityService,
+              private userService: UserserviceService,
               private messageService: MessageService) {
   }
 
@@ -37,7 +39,8 @@ export class PostCreateComponent implements OnInit {
 
     } else {
 
-      postForm.author = "Rohit Pogaku";
+      const user = this.userService.user;
+      postForm.author = `${user.firstname} ${user.lastname}`;
       this.communityService.uploadPost(postForm).subscribe((e) => {
 
         this.messageService.add({severity: 'success', summary: 'Post added successfully!'});

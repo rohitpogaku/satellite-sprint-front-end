@@ -1,24 +1,31 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import Satellite from "../shared/satellite";
 import {SatelliteService} from "../satellite.service";
 import {MessageService} from "primeng/api";
+import {UserserviceService} from "../userservice.service";
 
 @Component({
   selector: 'app-satellite-table',
   templateUrl: './satellite-table.component.html',
   styleUrls: ['./satellite-table.component.css']
 })
-export class SatelliteTableComponent {
+export class SatelliteTableComponent implements OnInit {
   @Input() satellites: Satellite[] = [];
   @Output() rowDeleted: EventEmitter<void> = new EventEmitter<void>();
+
+  user: any;
+  userType: any;
 
   satelliteNameToBeDeleted = {
     satelliteId: undefined,
     satelliteName: ""
   };
 
-  constructor(private router: Router, private satelliteService: SatelliteService, private messageService: MessageService) {
+  constructor(private router: Router,
+              private satelliteService: SatelliteService,
+              private userService: UserserviceService,
+              private messageService: MessageService) {
   }
 
   handleRowClick(event: any) {
@@ -49,6 +56,11 @@ export class SatelliteTableComponent {
     })
 
 
+  }
+
+  ngOnInit(): void {
+    this.user = this.userService.user;
+    this.userType = this.user.role;
   }
 
 

@@ -10,7 +10,7 @@
       <th>AGENCY</th>
       <th>MANUFACTURER</th>
       <th>APPLICATION</th>
-      <th></th>
+      <th *ngIf="userType==='Admin' || userType === 'Scientist'"></th>
     </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -23,7 +23,7 @@
       <td>{{s.agency}}</td>
       <td>{{s.manufacturer}}</td>
       <td>{{s.application}}</td>
-      <td>
+      <td *ngIf="userType==='Admin' || userType === 'Scientist'">
         <div class="btn-group">
           <button type="button" class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown"
                   aria-expanded="false">Action
@@ -43,7 +43,8 @@
     </tr>
     </tbody>
   </table>
-  <div class="add-button" [routerLink]="['/satellites/create']"><i class="bi bi-plus h3 m-0 p-0"></i></div>
+  <div *ngIf="userType==='Admin' || userType === 'Scientist'" class="add-button" [routerLink]="['/satellites/create']">
+    <i class="bi bi-plus h3 m-0 p-0"></i></div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

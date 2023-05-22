@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CommunityService} from "../community.service";
 import {NgForm} from "@angular/forms";
 import {MessageService} from "primeng/api";
+import {UserserviceService} from "../userservice.service";
 
 @Component({
   selector: 'app-post',
@@ -11,10 +12,13 @@ import {MessageService} from "primeng/api";
 })
 export class PostComponent implements OnInit {
   post: any;
+  user: any;
+  userName: any;
 
   constructor(private route: ActivatedRoute,
               private communityService: CommunityService,
               private router: Router,
+              private userService: UserserviceService,
               private messageService: MessageService) {
   }
 
@@ -23,6 +27,9 @@ export class PostComponent implements OnInit {
     setTimeout(() => {
       this.getPost(id);
     }, 500);
+
+    this.user = this.userService.user;
+    this.userName = `${this.user.firstname} ${this.user.lastname}`
   }
 
   getPost(id: number) {
