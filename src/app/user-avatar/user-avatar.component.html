@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle dropdown-button" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false" data-bs-display="static">
+    <i class="bi bi-person h4"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-lg-end ">
+    <div class="dropdown-item text-info">Hi, {{user.firstname}}!</div>
+    <div class="dropdown-item" routerLink="/profile">Profile</div>
+    <div>
+      <hr class="dropdown-divider">
+    </div>
+    <div class="dropdown-item">Logout</div>
+  </div>
+</div>

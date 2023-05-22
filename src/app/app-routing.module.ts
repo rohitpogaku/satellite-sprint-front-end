@@ -20,6 +20,7 @@ import {RegisterComponent} from './register/register.component';
 import {UserComponent} from './user/user.component';
 import {UseraddComponent} from './useradd/useradd.component';
 import {UsereditComponent} from './useredit/useredit.component';
+import {UserProfileComponent} from "./user-profile/user-profile.component";
 
 const routes: Routes = [
   {path: "home", component: HomeComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: "useredit/:id", component: UsereditComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
+  {path: "profile", component: UserProfileComponent},
   {path: "satellites/create", component: SatelliteCreateComponent},
   {path: "satellites/:id", component: SatellitePageComponent},
   {path: "satellites/:id/edit", component: SatelliteEditComponent},

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {SatelliteService} from '../satellite.service';
 import {Appiresponse} from './message';
+import {UserserviceService} from "../userservice.service";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ export class LoginComponent implements OnInit {
 
   errorMessage: string = '';
 
-  constructor(private service: SatelliteService, private router: Router) {
+  constructor(private service: SatelliteService,
+              private userService: UserserviceService,
+              private router: Router) {
 
   }
 
@@ -22,8 +25,8 @@ export class LoginComponent implements OnInit {
 
   submit(loginform: any) {
     // this.user=loginform;
-    var email = loginform.email;
-    var password = loginform.password;
+    let email = loginform.email;
+    let password = loginform.password;
     // console.log(loginform)
     this.service.getUserInfo(email, password).subscribe((res: any) => {
 
@@ -47,6 +50,9 @@ export class LoginComponent implements OnInit {
 
       } else if (res.message === "you have logged in successfully") {
         alert("login success");
+
+        this.userService.user = email;
+
         this.router.navigate(["/home"]);
       } else if (res.message === "invalid Password") {
         alert("Invalid Password");

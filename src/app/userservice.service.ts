@@ -1,34 +1,65 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from './user/user';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
+import {User} from './user/user';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
-  
- 
-  constructor(private httpclient: HttpClient) { }
+  // private commandSource = new Subject<string>();
+  // command$ = this.commandSource.asObservable();
+  //
+  // sendCommand(command: string) {
+  //   this.commandSource.next(command);
+  // }
 
-  
-  getUserInfo(){
+  get user(): any {
+    return this._user;
+  }
+
+  set user(email: string) {
+    if (email) {
+      this.getUserByEmail(email).subscribe((u: any) => {
+        this._user = u;
+        this.isLoggedIn = true;
+        console.log(this.user);
+      });
+    } else {
+      this.isLoggedIn = false;
+    }
+  }
+
+  isLoggedIn: boolean = false;
+  private _user: any;
+
+
+  constructor(private httpclient: HttpClient) {
+  }
+
+
+  getUserInfo() {
     return this.httpclient.get("/api/v1/register/all");
   }
-  
-  addUser(data:any){
-    return this.httpclient.post('/api/v1/register/save',data);
+
+  addUser(data: any) {
+    return this.httpclient.post('/api/v1/register/save', data);
   }
 
-  getUserById(id: number): Observable<User>{
+  getUserByEmail(email: string) {
+    return this.httpclient.get(`/api/v1/register/userDetail/${email}`);
+  }
+
+  getUserById(id: number): Observable<User> {
     return this.httpclient.get<User>(`/api/v1/register/${id}`);
   }
 
-  updateUser(id:any){
-    return this.httpclient.put("/api/v1/register/update/",id);
+  updateUser(id: any) {
+    return this.httpclient.put("/api/v1/register/update/", id);
   }
-  deleteUser(registerId:any){
+
+  deleteUser(registerId: any) {
     return this.httpclient.delete(`/api/v1/register/${registerId}`);
   }
 }
