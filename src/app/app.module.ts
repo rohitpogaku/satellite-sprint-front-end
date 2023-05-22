@@ -34,8 +34,8 @@ import {UsereditComponent} from './useredit/useredit.component';
 import {CalendarModule} from "primeng/calendar";
 import {MessageService} from "primeng/api";
 import {ToastModule} from "primeng/toast";
-import { UserAvatarComponent } from './user-avatar/user-avatar.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import {UserAvatarComponent} from './user-avatar/user-avatar.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [

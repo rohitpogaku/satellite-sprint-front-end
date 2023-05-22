@@ -8,21 +8,12 @@ import {UserserviceService} from "../userservice.service";
 })
 export class UserProfileComponent implements OnInit {
 
-  user: any = {
-    "id": 4,
-    "firstname": "Rohit",
-    "lastname": "Pogaku",
-    "email": "rohitpogaku@gmail.com",
-    "password": "$2a$10$73XIlOKY3Ri5zqi4pGi6ouYfXvjDdj7m94HiI9BghVBfnvJID1NFm",
-    "gender": "Male",
-    "role": "Admin",
-    "country": "India"
-  };
+  user: any;
 
   constructor(public userService: UserserviceService) {
   }
 
   ngOnInit(): void {
-    // this.user = this.userService.user;
+    this.user = this.userService.user;
   }
 }

@@ -27,6 +27,7 @@ export class UserserviceService {
         console.log(this.user);
       });
     } else {
+      this._user = undefined;
       this.isLoggedIn = false;
     }
   }
@@ -63,8 +64,8 @@ export class UserserviceService {
     return this.httpclient.delete(`/api/v1/register/${registerId}`);
   }
 
-  //Country API linking 
-  getCountries(){
+  //Country API linking
+  getCountries() {
     return this.httpclient.get("https://restcountries.com/v2/all");
   }
 }
