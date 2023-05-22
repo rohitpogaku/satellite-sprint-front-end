@@ -62,4 +62,9 @@ export class UserserviceService {
   deleteUser(registerId: any) {
     return this.httpclient.delete(`/api/v1/register/${registerId}`);
   }
+
+  //Country API linking 
+  getCountries(){
+    return this.httpclient.get("https://restcountries.com/v2/all");
+  }
 }

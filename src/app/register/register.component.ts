@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit{
+  allcountries:any;
   user: any;
   registerform: any;
   constructor(private service:SatelliteService, private router: Router) { }
@@ -24,7 +25,17 @@ export class RegisterComponent implements OnInit{
     role: new FormControl('', [Validators.required])
   })
   ngOnInit(): void {
+    this.getCountries();
   }
+
+  getCountries(){
+    return this.service.getCountries().subscribe((c:any)=>
+    {
+   console.log(c);
+   this.allcountries=c;
+    })
+   }
+
   submitForm(registerform:any){
 
     

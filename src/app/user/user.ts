@@ -6,4 +6,5 @@ export interface User {
     password:string
     role:string
     gender:string
+    country:string
 }

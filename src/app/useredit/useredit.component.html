@@ -66,6 +66,16 @@
           </div>
         </div>
         </div>
+
+
+         <!--Country-->
+         <div class="row">
+          <div class="col-md-12 form-group mb-4">
+            <label for="country">Country</label><br>
+            <select id="selectcountry" class="form-control" ngModel name="country" #country="ngModel" ngModel required>
+            <option *ngFor="let country of allcountries" name="alpha2Code">{{country.name}}</option></select>
+            </div>
+            </div>
        
         <!--Role-->
         <div class="form-group">
@@ -81,10 +91,11 @@
           </div>
         </div>
         </div>
+        <br>
 
         <div class="row">
           <div class="col-md-12 form-group">
-            <input class="btn btn-primary w-100" type="submit" value="Submit">
+            <input class="btn btn-primary w-100" type="submit" value="Submit" id="submitbtn">
           </div>
         </div>
 

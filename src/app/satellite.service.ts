@@ -81,8 +81,8 @@ export class SatelliteService {
     return this.satelliteCacheData;
   }
 
-  sendMessage(message: ContactusComponent) {
-    return this.http.post("/api/v1/message", message);
+  addMessage(data:any) {
+    return this.http.post("/api/v1/message", data);
   }
 
   getAllMessages() {
@@ -95,6 +95,11 @@ export class SatelliteService {
 
   getUserInfo(email: any, password: any) {
     return this.http.get(`/api/v1/register/authenticate/${email}/${password}`);
+  }
+
+  //Country API linking 
+  getCountries(){
+    return this.http.get("https://restcountries.com/v2/all");
   }
 
 }

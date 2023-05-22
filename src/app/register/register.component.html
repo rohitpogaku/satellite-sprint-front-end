@@ -80,18 +80,18 @@ Other:<input type="radio" name="gender" value="other">
     <h2>Create an Account</h2>
     
     <div class="inputBox">
-    <input type="text" name="firstname" #firstname="ngModel" ngModel required maxlength="10">
-    <div *ngIf="firstname.errors?.['required'] && firstname.touched">Enter your first name</div>
-    <div *ngIf="firstname.errors?.['maxlength'] && firstname.touched">Please enter characters having maxlength 10</div>
     <span>First Name</span>
     <i></i>
+    <input type="text" name="firstname" #firstname="ngModel" ngModel required maxlength="10">
+    <div *ngIf="firstname.errors?.['required'] && firstname.touched" id="error">Enter your first name</div>
+    <div *ngIf="firstname.errors?.['maxlength'] && firstname.touched" id="error">Please enter characters having maxlength 10</div>
     </div>
     
     <br>
     <div class="inputBox">
-    <input type="text" name="lastname" #lastname="ngModel" ngModel maxlength="10">
     <span>Last Name</span>
     <i></i>
+    <input type="text" name="lastname" #lastname="ngModel" ngModel maxlength="10">
     </div>
     <br>
     
@@ -100,7 +100,7 @@ Other:<input type="radio" name="gender" value="other">
     <span>Gender</span>
     <i></i>
     
-    <select ngModel name="gender" #gender="ngModel" ngModel required>
+    <select id="selectgender" ngModel name="gender" #gender="ngModel" ngModel required style="margin-left: 12px;">
         <option value="">--Select</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
@@ -109,19 +109,33 @@ Other:<input type="radio" name="gender" value="other">
     </div>
     </div>
     <br>
-    
+
     <div class="inputBox">
-    <input type="email"  name="email" #email="ngModel" ngModel required>
-    <div *ngIf="email.errors?.['required'] && email.touched">Enter valid email id</div>
+    <div class="d-flex">
+    <span>Country</span>
+    <i></i>
+    <select id="selectcountry" ngModel name="country" #country="ngModel" ngModel required>
+    <div *ngIf="country.errors?.['required'] && country.touched" id="error">Choose any one of the given options</div>
+    <option *ngFor="let country of allcountries" name="alpha2Code">{{country.name}}</option></select>
+    </div>
+    </div>
+        
+    <br> 
+    <div class="inputBox">
     <span>Email ID</span>
     <i></i>
+    <input type="email"  name="email" #email="ngModel" ngModel required>
+    <div *ngIf="email.errors?.['required'] && email.touched" id="error">Enter valid email id</div>
     </div>
     <br>
     
     <div class="inputBox">
-    <input type="password" name="password" #password="ngModel" ngModel required>
     <span>Password</span>
     <i></i>
+    <input type="password" name="password" #password="ngModel" ngModel required>
+    <div *ngIf="password.errors?.['required'] && password.touched" id="error">Enter your password</div>
+    <div *ngIf="password.errors?.['minlength'] && password.touched" id="error">Please enter a password with a minimum length of 4 characters</div>
+    <div *ngIf="password.errors?.['maxlength'] && password.touched" id="error">Please enter a password with a maximum length of 8 characters</div>
     </div>
     <br>
     
@@ -140,7 +154,7 @@ Other:<input type="radio" name="gender" value="other">
     
     <div class="d-flex">
     <div class="links">
-    <a [routerLink]="['/login']">Already a user ?</a>
+    <a [routerLink]="['/login']">Already a user?</a>
     </div>
     
     <input type="submit" value="Register">
