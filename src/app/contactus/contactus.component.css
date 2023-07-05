@@ -1,23 +1,14 @@
 .box {
-    margin-top: 100px;
-    margin-left: 50px;
-    margin-bottom: 20px;
-    background-color: rgb(8, 8, 33);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    border: solid white;
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: solid white;
 }
 
 .inputBox {
-    width: 200px;
+  width: 200px;
 
 }
-
-.bgimg {
-    background: url("/assets/images/521477.jpg") ;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-  } 
-

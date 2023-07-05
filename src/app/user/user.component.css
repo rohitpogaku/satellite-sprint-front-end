@@ -1,3 +1,7 @@
-th,td {
-    color: white;
+.nav-margin-placeholder {
+  height: 8vh;
+}
+
+th, td {
+  color: white;
 }

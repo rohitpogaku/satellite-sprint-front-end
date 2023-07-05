@@ -1,18 +1,36 @@
-.bgimg {
-    background: url("/assets/images/521477.jpg") ;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-  } 
-
 .card {
-    margin-top: 90px;
-    margin-left: 50px;
+  height: 320px;
+  width: 380px;
+  margin-top: 90px;
+  margin-left: 50px;
+}
+
+h2 {
+  margin-bottom: -35px;
+}
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.card-title {
+  font-size: 24px;
 }
 
 video {
-    height: 400px;
-    width: 800px;
-    margin-top: 50px;
-    margin-bottom: 10px;
+  height: 320px;
+  width: 720px;
+}
+
+
+/*#myVideo {*/
+/*  position: fixed;*/
+/*  right: 0;*/
+/*  bottom: 0;*/
+/*  min-width: 100%;*/
+/*  min-height: 100%;*/
+/*}*/
+.nav-margin-placeholder {
+  height: 8vh;
 }

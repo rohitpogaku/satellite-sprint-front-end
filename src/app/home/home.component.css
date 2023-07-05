@@ -1,10 +1,3 @@
-.bgimg {
-  background: url("/assets/images/521477.jpg");
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-}
-
 .carousel .carousel-item {
   width: 100vw;
   height: 60vh;
@@ -53,9 +46,13 @@
   background-position: top;
 }
 
+.agency-cards-section {
+  background-color: var(--sa-light);
+}
+
 .card {
   max-width: 350px;
-  background-color: #051a34;
+  background-color: var(--sa-dark);
   color: white;
   box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
   transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
@@ -73,9 +70,9 @@
   background-size: contain;
 }
 
-/*.feature-section {*/
-/*  background-color: #20262e;*/
-/*}*/
+.feature-section {
+  background-color: #20262e;
+}
 
 .feature-tagline, .feature-title {
   text-shadow: 0 0 2px black;
@@ -95,7 +92,7 @@
 .feature-card {
   height: 350px;
   width: 400px;
-  background-color: #051a34;
+  background-color: #2a323d; /* #051a34 */
   border-radius: 8px;
   /*box-shadow: 0 0 3px #a9b7c2;*/
   padding: 10px 20px;

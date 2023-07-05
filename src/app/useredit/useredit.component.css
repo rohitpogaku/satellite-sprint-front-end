@@ -1,11 +1,15 @@
+.nav-margin-placeholder {
+  height: 8vh;
+}
+
 #selectcountry {
-    width: 320px;
-    height: 37px;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
+  width: 320px;
+  height: 37px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
 }
 
 #submitbtn {
-    border-radius: 5px;
+  border-radius: 5px;
 }

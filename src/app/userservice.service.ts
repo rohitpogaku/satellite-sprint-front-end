@@ -15,6 +15,14 @@ export class UserserviceService {
   //   this.commandSource.next(command);
   // }
 
+  userInit() {
+    if (localStorage.getItem('userLogin')) {
+      // @ts-ignore
+      this._user = JSON.parse(localStorage.getItem('userLogin'));
+      this.isLoggedIn = true;
+    }
+  }
+
   get user(): any {
     return this._user;
   }
@@ -24,11 +32,12 @@ export class UserserviceService {
       this.getUserByEmail(email).subscribe((u: any) => {
         this._user = u;
         this.isLoggedIn = true;
-        console.log(this.user);
+        localStorage.setItem('userLogin', JSON.stringify(this._user));
       });
     } else {
       this._user = undefined;
       this.isLoggedIn = false;
+      localStorage.removeItem('userLogin');
     }
   }
 
