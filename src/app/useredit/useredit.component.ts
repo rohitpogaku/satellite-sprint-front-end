@@ -10,10 +10,10 @@ import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
   styleUrls: ['./useredit.component.css']
 })
 export class UsereditComponent implements OnInit {
-  
+
   user?: User
   data: any
-  allcountries:any;
+  allcountries: any;
 
 
   constructor(private service: UserserviceService, private route: ActivatedRoute, private router: Router) {
@@ -25,16 +25,16 @@ export class UsereditComponent implements OnInit {
     console.log(id)
     this.service.getUserById(id).subscribe(data => {
       this.user = data
-      console.log(this.user)
 
       this.form.patchValue({
         firstname: this.user.firstname,
         lastname: this.user.lastname,
         email: this.user.email,
         gender: this.user.gender,
-        country:this.user.country,
+        country: this.user.country,
         role: this.user.role
       });
+      console.log(this.user.role);
     })
   }
 
@@ -59,11 +59,10 @@ export class UsereditComponent implements OnInit {
     this.router.navigate(['user']);
   }
 
-  getCountries(){
-    return this.service.getCountries().subscribe((c:any)=>
-    {
-   console.log(c);
-   this.allcountries=c;
+  getCountries() {
+    return this.service.getCountries().subscribe((c: any) => {
+      console.log(c);
+      this.allcountries = c;
     })
-}
+  }
 }

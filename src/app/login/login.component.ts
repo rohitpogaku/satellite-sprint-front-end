@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {SatelliteService} from '../satellite.service';
 import {Appiresponse} from './message';
 import {UserserviceService} from "../userservice.service";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private service: SatelliteService,
               private userService: UserserviceService,
-              private router: Router) {
+              private router: Router,
+              private messageService: MessageService) {
 
   }
 
@@ -44,18 +46,21 @@ export class LoginComponent implements OnInit {
       // }
 
       if (res.message === "EmailId is invalid") {
-        console.log(res.message);
-        alert("Invalid Email");
+        const message = "Invalid Email";
+        this.messageService.add({severity: 'error', summary: message});
         this.router.navigate(['login']);
 
       } else if (res.message === "you have logged in successfully") {
-        alert("login success");
-
+        const message = "Login Successful";
+        this.messageService.add({severity: 'success', summary: message});
         this.userService.user = email;
+        setTimeout(() => {
+          this.router.navigate(["/home"]);
+        }, 1000);
 
-        this.router.navigate(["/home"]);
       } else if (res.message === "invalid Password") {
-        alert("Invalid Password");
+        const message = "Invalid Password";
+        this.messageService.add({severity: 'error', summary: message});
         this.router.navigate(['/login']);
       }
 

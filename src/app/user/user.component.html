@@ -12,7 +12,7 @@
         <th scope="col">Gender</th>
         <th scope="col">Country</th>
         <th scope="col">Role</th>
-        <th scope="col">Delete</th>
+        <th scope="col" class="text-center">Delete</th>
       </tr>
       </thead>
       <tbody>
@@ -25,7 +25,7 @@
         <td>{{u.country}}</td>
         <td>{{u.role}}</td>
 
-        <td>
+        <td class="text-center">
           <!--          <li class="list-inline-item">-->
           <!--            <a routerLink="/useradd">-->
           <!--              <button class="btn btn-primary btn-sm rounded-0" type="button"-->
@@ -33,15 +33,15 @@
           <!--            </a>-->
           <!--          </li>-->
 
-          <li class="list-inline-item">
-            <button class="btn btn-success btn-sm rounded-5" type="button" (click)="updateUser(u.id)"
-                    data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-          </li>
+          <!--          <li class="list-inline-item">-->
+          <!--            <button class="btn btn-success btn-sm rounded-5" type="button" (click)="updateUser(u.id)"-->
+          <!--                    data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>-->
+          <!--          </li>-->
 
-          <li class="list-inline-item">
-            <button class="btn btn-danger btn-sm rounded-5" type="button" (click)="deleteUser(u.id)"
-                    data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-          </li>
+
+          <button class="btn btn-danger btn-sm rounded-5" type="button" (click)="deleteUser(u.id)"
+                  data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+
         </td>
 
       </tr>

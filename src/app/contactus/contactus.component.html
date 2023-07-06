@@ -1,47 +1,97 @@
-<div class="d-flex">
-  <div class="box">
-    <span class="borderLine"></span>
-    <form #messageform="ngForm" (ngSubmit)="submit(messageform.value)" novalidate>
-      <h2>Have Questions? ...Send Us</h2>
-      <h3>Sender's Information</h3>
-      <div class="inputBox">
-        <span>Name</span>
-        <i></i>
-        <input type="text" name="m_name" #m_name="ngModel" ngModel required maxlength="10" class="form-control">
-        <div *ngIf="m_name.errors?.['required'] && m_name.touched">Enter your name</div>
-        <div *ngIf="m_name.errors?.['maxlength'] && m_name.touched">Please enter characters having maxlength 10</div>
-      </div>
-      <br>
-      <div class="inputBox">
-        <span>Contact No.</span>
-        <i></i>
-        <input type="text" name="m_contact" #m_contact="ngModel" ngModel required maxlength="10" id="contact"
-               class="form-control">
-        <div *ngIf="m_contact.errors?.['required'] && m_contact.touched">Enter your contact information</div>
-        <div *ngIf="m_contact.errors?.['maxlength'] && m_contact.touched">Please enter characters having maxlength
-          10
+<div class="nav-margin-placeholder"></div>
+<div class="container mt-4 mb-5">
+  <div class="card">
+    <div class="card-header text-center">
+      <h1 class="display-4 fw-bold ">Send us a message!</h1>
+    </div>
+    <div class="card-body">
+      <form #messageform="ngForm" (ngSubmit)="submit(messageform.value)" novalidate>
+
+        <div class="mb-3">
+          <div class="d-flex justify-content-between">
+            <label for="m_name" class="form-label">Name</label>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(m_name.errors?.['required'] && m_name.touched)">
+              <small>*required</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(m_name.errors?.['pattern'] && !m_name.errors?.['minlength'] && m_name.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(m_name.errors?.['minlength'] && m_name.touched)">
+              <small>Must be at least 3 characters.</small>
+            </span>
+          </div>
+          <input type="text" #m_name="ngModel" ngModel name="m_name" class="form-control"
+                 [ngClass]="{'is-invalid': m_name.touched && m_name.invalid, 'is-valid': m_name.valid}"
+                 id="m_name" placeholder="ex. John Doe" [required]="true" [minlength]="3" autocomplete="off"
+                 pattern="^(?!\s+$).+$">
         </div>
-      </div>
-      <br>
-      <div class="inputBox">
-        <span>Email ID</span>
-        <i></i>
-        <input type="email" name="m_email" #m_email="ngModel" ngModel required class="form-control">
-        <div *ngIf="m_email.errors?.['required'] && m_email.touched">Enter valid email id</div>
-      </div>
-      <br>
-      <div class="inputBox">
-        <span>Message</span>
-        <i></i>
-        <input type="text" name="m_text" #m_text="ngModel" ngModel required class="form-control">
-      </div>
-      <br>
-      <div class="d-flex">
-        <div class="links">
-          <a [routerLink]="['/home']"></a>
+        <div class="mb-3">
+          <div class="d-flex justify-content-between">
+            <label for="m_contact" class="form-label">Contact number</label>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(m_contact.errors?.['required'] && m_contact.touched)">
+              <small>*required</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(m_contact.errors?.['pattern'] && !m_contact.errors?.['minlength'] && m_contact.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(m_contact.errors?.['minlength'] && m_contact.touched)">
+              <small>Must be 10 digits.</small>
+            </span>
+
+          </div>
+          <input type="number" #m_contact="ngModel" ngModel name="m_contact" class="form-control"
+                 [ngClass]="{'is-invalid': m_contact.touched && m_contact.invalid, 'is-valid': m_contact.valid}"
+                 id="m_contact" [required]="true" [minlength]="10" [maxLength]="10" autocomplete="off"
+                 pattern="^(?!\s+$).+$">
         </div>
-        <input type="submit" value="send">
-      </div>
-    </form>
+        <div class="mb-3">
+          <div class="d-flex justify-content-between">
+            <label for="m_email" class="form-label">Email</label>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(m_email.errors?.['required'] && m_email.touched)">
+              <small>*required</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(m_email.errors?.['email'] && m_email.touched)">
+              <small>Input must not be black space</small>
+            </span>
+
+          </div>
+          <input type="email" #m_email="ngModel" ngModel name="m_email" class="form-control"
+                 [ngClass]="{'is-invalid': m_email.touched && m_email.invalid, 'is-valid': m_email.valid}"
+                 id="m_email" placeholder="ex. johndoe@email.com" [required]="true" autocomplete="off" [email]="true">
+        </div>
+        <div class="mb-3">
+          <div class="d-flex justify-content-between">
+            <label for="m_text" class="form-label">Message</label>
+            <span class="text-danger fst-italic" [hidden]="!(m_text.errors?.['required'] && m_text.touched)">
+              <small>*required</small>
+            </span>
+            <span class="text-danger fst-italic"
+                  [hidden]="!(m_text.errors?.['pattern'] && !m_text.errors?.['minlength'] && m_text.touched)">
+              <small>Input must not be black space(s)</small>
+            </span>
+            <span class="text-danger fst-italic" [hidden]="!(m_text.errors?.['minlength'] && m_text.touched)">
+              <small>Enter at least 5 characters</small>
+            </span>
+          </div>
+          <textarea #m_text="ngModel" ngModel name="m_text" class="form-control m_text"
+                    placeholder="Write message..." id="m_text" [required]="true" [minlength]="5"
+                    autocomplete="off" pattern="^(?!\s*$)[\s\S]*$"
+                    [ngClass]="{'is-invalid': m_text.touched && m_text.invalid, 'is-valid': m_text.valid}"
+          ></textarea>
+        </div>
+        <br>
+        <div class="d-flex">
+          <button type="submit" class="btn btn-info" [disabled]="messageform.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

@@ -1,75 +1,76 @@
 <div class="nav-margin-placeholder"></div>
 <div class="container">
   <h2 class="display-4 text-center">Update User</h2>
-  <form [formGroup]="form" (ngSubmit)="submit()">
-    <!--name-->
-    <div class="row">
-      <div class="col-md-12 form-group mb-3">
-        <label for="firstname" class="form-label">FirstName</label>
-        <input id="firstname" formControlName="firstname" type="text" name="firstname"
-               class="form-control">
-      </div>
-    </div>
-
-    <!--name-->
-    <div class="row">
-      <div class="col-md-12 form-group mb-3">
-        <label for="lastname" class="form-label">LastName</label>
-        <input id="lastname" formControlName="lastname" type="text" name="lastname" class="form-control">
-      </div>
-    </div>
-
-    <!--Email-->
-    <div class="row">
-      <div class="col-md-12 form-group mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input id="email" type="email" formControlName="email" name="email" class="form-control">
-      </div>
-    </div>
-
-    <!--gender-->
-    <div class="form-group">
+  <div class="form-container mx-auto border px-4 py-2 rounded my-4">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <!--name-->
       <div class="row">
         <div class="col-md-12 form-group mb-3">
-          <label for="gender" class="form-label">Gender</label>
-          <input id="gender" formControlName="gender" type="text" name="gender" class="form-control">
+          <label for="firstname" class="form-label">FirstName</label>
+          <input id="firstname" formControlName="firstname" type="text" name="firstname"
+                 class="form-control">
         </div>
       </div>
-    </div>
 
-
-    <!--Country-->
-    <div class="row">
-      <div class="col-md-12 form-group mb-4">
-        <label for="country">Country</label><br>
-        <input id="country" formControlName="country" type="text" name="country" class="form-control">
-      </div>
-    </div>
-
-    <!--Role-->
-    <div class="form-group">
+      <!--name-->
       <div class="row">
         <div class="col-md-12 form-group mb-3">
-          <label for="role" class="form-label">Role</label>
-          <select id="role" name="role" class="form-control" formControlName="role">
-            <option value="">--Select--</option>
-            <option value="user">User</option>
-            <option value="scientist">Scientist</option>
-            <option value="admin">Admin</option>
-          </select>
+          <label for="lastname" class="form-label">LastName</label>
+          <input id="lastname" formControlName="lastname" type="text" name="lastname" class="form-control">
         </div>
       </div>
-    </div>
-    <br>
 
-    <div class="row">
-      <div class="col-md-12 form-group">
-        <input class="btn btn-primary w-100" type="submit" value="Submit" id="submitbtn">
+      <!--Email-->
+      <div class="row">
+        <div class="col-md-12 form-group mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" type="email" formControlName="email" name="email" class="form-control">
+        </div>
       </div>
-    </div>
 
-    <div>
+      <!--gender-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <input id="gender" formControlName="gender" type="text" name="gender" class="form-control">
+          </div>
+        </div>
+      </div>
 
-    </div>
-  </form>
+
+      <!--Country-->
+      <div class="row">
+        <div class="col-md-12 form-group mb-4">
+          <label for="country">Country</label><br>
+          <input id="country" formControlName="country" type="text" name="country" class="form-control">
+        </div>
+      </div>
+
+      <!--Role-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select id="role" name="role" class="form-control" formControlName="role">\
+              <option value="Student">Student</option>
+              <option value="Scientist">Scientist</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <input class="btn btn-primary w-100" type="submit" value="Submit" id="submitbtn">
+        </div>
+      </div>
+
+      <div>
+
+      </div>
+    </form>
+  </div>
 </div>

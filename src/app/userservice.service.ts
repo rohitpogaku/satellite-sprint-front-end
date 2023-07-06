@@ -66,7 +66,7 @@ export class UserserviceService {
   }
 
   updateUser(id: any) {
-    return this.httpclient.put("/api/v1/register/update/", id);
+    return this.httpclient.put("/api/v1/register/update", id);
   }
 
   deleteUser(registerId: any) {

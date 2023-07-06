@@ -13,3 +13,9 @@
 #submitbtn {
   border-radius: 5px;
 }
+
+@media screen and (min-width: 767px) {
+  .form-container {
+    max-width: 500px;
+  }
+}

@@ -1,14 +1,52 @@
-.box {
-  margin-top: 100px;
-  margin-left: 50px;
-  margin-bottom: 20px;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  border: solid white;
+.nav-margin-placeholder {
+  height: 5vh;
 }
 
-.inputBox {
-  width: 200px;
+.m_text {
+  height: auto;
+  min-height: 200px;
+  resize: none;
+}
 
+.card {
+  margin: 0 auto;
+  border-color: var(--sa-light);
+  color: whitesmoke;
+}
+
+.card-header {
+  background-color: #bbd3f5;
+  color: var(--sa-dark);
+  text-shadow: 3px 3px 3px #525252;
+  border-color: var(--sa-light);
+}
+
+.card-body {
+  background-color: var(--sa-light);
+}
+
+input,
+select,
+textarea,
+input:focus,
+select:active,
+textarea:active {
+  background-color: var(--sa-dark) !important;
+  border-color: var(--sa-dark);
+  color: ghostwhite !important;
+}
+
+::placeholder {
+  color: ghostwhite;
+  opacity: 0.3;
+}
+
+option {
+  color: ghostwhite;
+}
+
+@media screen  and (min-width: 992px) {
+  .card {
+    max-width: 50%;
+  }
 }
