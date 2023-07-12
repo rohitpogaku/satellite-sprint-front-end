@@ -37,15 +37,16 @@
     <div class="inputBox">
       <span>Email ID</span>
       <i></i>
-      <input type="email" name="email" #email="ngModel" ngModel required>
+      <input type="email" name="email" #email="ngModel" ngModel required placeholder="John Doe">
       <div *ngIf="email.errors?.['required'] && email.touched" id="error">Enter a valid email ID</div>
+      <div class="small opacity-50">Test Email: johnsmith@mail.com</div>
     </div>
     <br><br>
     <div class="inputBox">
       <span>Password</span>
       <i></i>
       <input type="password" name="password" #password="ngModel" ngModel required minlength="4" maxlength="8"
-             id="myInput">
+             id="myInput" placeholder="john@23">
       <!-- <input type="checkbox" onclick="myFunction()">Show Password -->
       <div *ngIf="password.errors?.['required'] && password.touched" id="error">Enter your password</div>
       <div *ngIf="password.errors?.['minlength'] && password.touched" id="error">Please enter a password with a minimum
@@ -56,6 +57,7 @@
       </div>
     </div>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <div class="small opacity-50">Test Password: john@23</div>
     <br>
     <div class="links">
       <a href="#">Forgot Password?</a>
